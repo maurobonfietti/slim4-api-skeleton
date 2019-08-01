@@ -27,6 +27,7 @@
     "scripts": {
         "start": "php -S 0.0.0.0:8080 -t public public/index.php",
         "test": "phpunit",
+        "coverage": "phpunit --coverage-text --coverage-html coverage",
         "up": "docker-compose up -d --build",
         "down": "docker-compose down"
     }
