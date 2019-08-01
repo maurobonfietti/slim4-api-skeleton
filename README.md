@@ -61,11 +61,3 @@ $ docker-compose down
 
 - [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit): The PHP Unit Testing framework.
 
-
-## DOCUMENTATION:
-
-### ENDPOINTS LIST:
-
-- Help: `GET /`
-
-- Status: `GET /status`

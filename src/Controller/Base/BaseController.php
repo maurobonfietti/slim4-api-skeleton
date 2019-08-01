@@ -29,19 +29,4 @@ class BaseController
 
         return $response->withJson($message, 200);
     }
-
-    public function getStatus(Request $request, Response $response): Response
-    {
-        $this->container->get('db');
-        $status = [
-            'status' => [
-                'database' => 'OK',
-            ],
-            'api' => self::API_NAME,
-            'version' => self::API_VERSION,
-            'timestamp' => time(),
-        ];
-
-        return $response->withJson($status, 200);
-    }
 }
