@@ -1,7 +1,7 @@
 # SKEL API SLIM PHP
 
-Skel Api Slim PHP :-)
-
+Skeleton for develop RESTful API using Slim PHP micro framework.
+Technologies: PHP, Slim, MySQL, Env Var, PHPUnit, Docker & Docker Compose.
 
 ## QUICK INSTALL:
 
