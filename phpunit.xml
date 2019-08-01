@@ -1,0 +1,17 @@
+<phpunit colors="true" bootstrap="vendor/autoload.php">
+    <testsuites>
+        <testsuite name="skel-api-slim-php">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+            <exclude>
+                <directory suffix="App.php">src/App</directory>
+                <directory suffix=".php">tests</directory>
+                <directory suffix=".php">vendor</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

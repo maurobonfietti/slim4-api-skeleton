@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: skel-api-slim-php-nginx-container
+    ports:
+    - "8081:80"
+    volumes:
+    - ./:/var/www/html
+    - ./docker/nginx/conf.d:/etc/nginx/conf.d
+    networks:
+    - testingnetwork
+
+  php-fpm:
+    build: ./docker/php7
+    container_name: skel-api-slim-php-php-container
+    links:
+      - mysql
+    environment:
+      - PHP_FPM_ENABLE=1
+      - PHP_FPM_SERVER_ADDR=php
+      - PHP_FPM_SERVER_PORT=9000
+      - PHP_FPM_TIMEOUT=${HTTPD_TIMEOUT_TO_PHP_FPM:-180}
+      - DB_HOSTNAME=mysql
+      - DB_DATABASE=skel_api_slim_php
+      - DB_USERNAME=root
+      - DB_PASSWORD=
+
+    volumes:
+     - ./:/var/www/html
+    networks:
+      - testingnetwork
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 33060:3306
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: skel_api_slim_php
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 
+      MYSQL_ROOT_PASSWORD: 
+    networks:
+      - testingnetwork
+    volumes:
+      - my-data:/var/lib/mysql
+      - ./database/database.sql:/docker-entrypoint-initdb.d/database.sql
+
+networks:
+  testingnetwork:
+    external:
+      name: testingnetwork
+
+volumes:
+  my-data:
