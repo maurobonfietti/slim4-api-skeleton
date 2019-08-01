@@ -17,17 +17,17 @@ Skel Api Slim PHP :-)
 In your terminal execute this commands:
 
 ```bash
-$ ### git clone https://github.com/maurobonfietti/skel-api-slim-php.git && cd skel-api-slim-php
+$ git clone https://github.com/maurobonfietti/skel-api-slim-php.git && cd skel-api-slim-php
 $ cp .env.example .env
 $ composer install
-$ composer database
+$ composer test
 $ composer start
 ```
 
 
-## USING DOCKER:
+## DOCKER READY:
 
-If you prefer, you can use this project with **docker** and **docker-compose**.
+If you like Docker, you can use this project with **docker** and **docker-compose**.
 
 
 ### MINIMAL DOCKER VERSION:
@@ -41,9 +41,6 @@ If you prefer, you can use this project with **docker** and **docker-compose**.
 ```bash
 # Create and start containers for the API.
 $ docker-compose up -d --build
-
-# Execute script to create the database and import test data from scratch.
-$ ./bin/docker/restart-db.sh
 
 # Checkout the API.
 $ curl http://localhost:8081
