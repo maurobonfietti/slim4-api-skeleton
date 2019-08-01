@@ -2,7 +2,7 @@
 
 namespace Tests\integration;
 
-class DefaultTest extends BaseTestCase
+class BaseTest extends BaseTestCase
 {
     public function testApiHelp()
     {
@@ -23,7 +23,7 @@ class DefaultTest extends BaseTestCase
         $this->assertStringContainsString('api', (string) $response->getBody());
         $this->assertStringContainsString('version', (string) $response->getBody());
         $this->assertStringContainsString('time', (string) $response->getBody());
-        $this->assertStringContainsString('db', (string) $response->getBody());
+        $this->assertStringContainsString('database', (string) $response->getBody());
         $this->assertStringNotContainsString('error', (string) $response->getBody());
         $this->assertStringNotContainsString('failed', (string) $response->getBody());
         $this->assertStringNotContainsString('PDOException', (string) $response->getBody());

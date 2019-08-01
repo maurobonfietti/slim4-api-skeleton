@@ -6,7 +6,7 @@ use Slim\Container;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-class DefaultController
+class BaseController
 {
     const API_NAME = 'skel-api-slim-php';
 
@@ -32,8 +32,11 @@ class DefaultController
 
     public function getStatus(Request $request, Response $response): Response
     {
+        $this->container->get('db');
         $status = [
-            'db-stats' => [],
+            'status' => [
+                'database' => 'OK',
+            ],
             'api' => self::API_NAME,
             'version' => self::API_VERSION,
             'timestamp' => time(),
