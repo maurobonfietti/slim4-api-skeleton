@@ -1,7 +1,8 @@
 # SKEL API SLIM PHP
 
-Skeleton for develop RESTful API using Slim PHP micro framework.
-Technologies: PHP, Slim, MySQL, Env Var, PHPUnit, Docker & Docker Compose.
+Skeleton for RESTful API development, using Slim PHP micro framework.
+
+Used technologies: PHP, Slim PHP, MySQL, PHPUnit, Env Var, Docker & Docker Compose.
 
 ## QUICK INSTALL:
 
