@@ -30,6 +30,7 @@
         "test": "phpunit",
         "coverage": "phpunit --coverage-text --coverage-html coverage",
         "up": "docker-compose up -d --build",
-        "down": "docker-compose down"
+        "down": "docker-compose down",
+        "crud": "php console api:generate:endpoints"
     }
 }

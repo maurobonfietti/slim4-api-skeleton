@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php declare(strict_types=1);
 
-require __DIR__ . '/App.php';
+require __DIR__ . '/src/App/App.php';
 
 use Symfony\Component\Console\Application;
 
