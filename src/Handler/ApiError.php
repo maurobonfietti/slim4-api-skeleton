@@ -10,6 +10,7 @@ final class ApiError extends \Slim\Handlers\Error
     public function __invoke(Request $request, Response $response, \Exception $exception)
     {
         $statusCode = $exception->getCode() <= 599 ? $exception->getCode() : 500;
+//        var_dump($exception->getCode()); exit;
         $className = new \ReflectionClass(get_class($exception));
         $data = [
             'message' => $exception->getMessage(),
@@ -19,6 +20,6 @@ final class ApiError extends \Slim\Handlers\Error
         ];
         $body = json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
 
-        return $response->withStatus($statusCode)->withHeader("Content-type", "application/json")->write($body);
+        return $response->withStatus(500)->withHeader("Content-type", "application/json")->write($body);
     }
 }
