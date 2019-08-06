@@ -9,7 +9,7 @@ use Symfony\Component\Console\Input\InputArgument;
 
 class GenerateCrudEntityCommand extends Command
 {
-    const COMMAND_VERSION = '0.0.2';
+    const COMMAND_VERSION = '0.0.1';
 
     public function __construct($app)
     {
@@ -19,13 +19,13 @@ class GenerateCrudEntityCommand extends Command
 
     protected function configure()
     {
-        $this->setName('app:generate:entity:endpoints')
-            ->setDescription('Generate CrudEntity Command')
-            ->setHelp('This command Generate CrudEntity Command. Version: ' . self::COMMAND_VERSION)
+        $this->setName('api:generate:endpoints')
+            ->setDescription('Given an entity, autogenerate a simple CRUD/REST endpoints.')
+            ->setHelp('This command generate RESTful endpoints, to manage any entity. Version: ' . self::COMMAND_VERSION)
             ->addArgument(
                 'entity',
                 InputArgument::REQUIRED,
-                'Enter the name for the entity/table, to generate CRUD endpoints.'
+                'Enter the name for the entity or table, to generate endpoints.'
             );
     }
 
@@ -35,8 +35,8 @@ class GenerateCrudEntityCommand extends Command
 
         // Get Entity Name.
         $entityName = $input->getArgument('entity');
-        $output->writeln('Generate New Entity: ' . $entityName);
         $entityNameUpper = ucfirst($entityName);
+        $output->writeln('Generate Endpoints For New Entity: ' . $entityName);
 
         // Get Entity Fields.
         $db = $this->container->get('db');
@@ -45,83 +45,19 @@ class GenerateCrudEntityCommand extends Command
         $statement->execute();
         $fields = $statement->fetchAll();
 
-        // Get Dynamic Params and Fields List.
-        $paramList = '';
-        $paramList2 = '';
-        $paramList3 = '';
-        $paramList4 = '';
-        $paramList5 = '';
-        foreach ($fields as $field) {
-            $paramList.= sprintf("`%s`, ", $field['Field']);
-            $paramList2.= sprintf(":%s, ", $field['Field']);
-            $paramList3.= sprintf('$statement->bindParam(\'%s\', $%s->%s);%s', $field['Field'], $entityName, $field['Field'], PHP_EOL);
-            $paramList3.= sprintf("%'\t1s", '');
-            if ($field['Field'] != 'id') {
-                $paramList4.= sprintf("`%s` = :%s, ", $field['Field'], $field['Field']);
-                $paramList5.= sprintf("if (isset(\$data->%s)) { $%s->%s = \$data->%s; }%s", $field['Field'], $entityName, $field['Field'], $field['Field'], PHP_EOL);
-                $paramList5.= sprintf("%'\t1s", '');
-            }
-        }
-        $fieldList = substr_replace($paramList, '', -2);
-        $fieldList2 = substr_replace($paramList2, '', -2);
-        $fieldList3 = substr_replace($paramList3, '', -2);
-        $fieldList4 = substr_replace($paramList4, '', -2);
-        $fieldList5 = substr_replace($paramList5, '', -2);
+        // Get Insert and Update Functions, using each fields of the entity.
+        $repositoryFunctions = $this->getRepositoryFunctions($fields, $entityName, $entityNameUpper);
+        $insertQueryFunction = $repositoryFunctions[0];
+        $updateQueryFunction = $repositoryFunctions[1];
 
-        // Get Base Query For Insert Function.
-        $insertQueryFunction = '$query = \'INSERT INTO `'.$entityName.'` ('.$fieldList.') VALUES ('.$fieldList2.')\';
-        $statement = $this->getDb()->prepare($query);
-        '.$fieldList3.'
-        $statement->execute();
+        // Add and Update Routes.
+        $this->updateRoutes($entityName);
 
-        return $this->checkAndGet'.$entityNameUpper.'((int) $this->getDb()->lastInsertId());';
+        // Add and Update Repository.
+        $this->updateRepository($entityName);
 
-        // Get Base Query For Update Function.
-        $updatequeryFunction = ''.$fieldList5.'
-
-        $query = \'UPDATE `'.$entityName.'` SET '.$fieldList4.' WHERE `id` = :id\';
-        $statement = $this->getDb()->prepare($query);
-        '.$fieldList3.'
-        $statement->execute();
-
-        return $this->checkAndGet'.$entityNameUpper.'((int) $'.$entityName.'->id);';
-
-        // Add Routes.
-        $routes = '
-$app->group("/'.$entityName.'", function () use ($app) {
-    $app->get("", "App\Controller\\'.ucfirst($entityName).'\GetAll");
-    $app->get("/[{id}]", "App\Controller\\'.ucfirst($entityName).'\GetOne");
-    $app->post("", "App\Controller\\'.ucfirst($entityName).'\Create");
-    $app->put("/[{id}]", "App\Controller\\'.ucfirst($entityName).'\Update");
-    $app->delete("/[{id}]", "App\Controller\\'.ucfirst($entityName).'\Delete");
-});
-';
-        $file = __DIR__ . '/../../App/Routes.php';
-        $content = file_get_contents($file);
-        $content.= $routes;
-        file_put_contents($file, $content);
-
-        // Add Repositories.
-        $repository = '
-$container["'.$entityName.'_repository"] = function (ContainerInterface $container): App\Repository\\'.ucfirst($entityName).'Repository {
-    return new App\Repository\\'.ucfirst($entityName).'Repository($container->get("db"));
-};
-';
-        $file = __DIR__ . '/../../App/Repositories.php';
-        $repositoryContent = file_get_contents($file);
-        $repositoryContent.= $repository;
-        file_put_contents($file, $repositoryContent);
-
-        // Add Services.
-        $service = '
-$container["'.$entityName.'_service"] = function (ContainerInterface $container): App\Service\\'.ucfirst($entityName).'Service {
-    return new App\Service\\'.ucfirst($entityName).'Service($container->get("'.$entityName.'_repository"));
-};
-';
-        $file = __DIR__ . '/../../App/Services.php';
-        $serviceContent = file_get_contents($file);
-        $serviceContent.= $service;
-        file_put_contents($file, $serviceContent);
+        // Add and Update Services.
+        $this->updateServices($entityName);
 
         // Copy CRUD Template.
         $source = __DIR__ . '/../../Commands/SourceCode/Objectbase';
@@ -177,9 +113,98 @@ $container["'.$entityName.'_service"] = function (ContainerInterface $container)
 
         // Replace and Update Repository with Update Query Function.
         $entityRepositoryUpdate = file_get_contents($target);
-        $repositoryDataUpdate = preg_replace("/".'#updateFunction'."/", $updatequeryFunction, $entityRepositoryUpdate);
+        $repositoryDataUpdate = preg_replace("/".'#updateFunction'."/", $updateQueryFunction, $entityRepositoryUpdate);
         file_put_contents($target, $repositoryDataUpdate);
 
         $output->writeln('Script Finish ;-)');
+    }
+
+    private function getRepositoryFunctions($fields, $entityName, $entityNameUpper)
+    {
+        // Get Dynamic Params and Fields List.
+        $paramList = '';
+        $paramList2 = '';
+        $paramList3 = '';
+        $paramList4 = '';
+        $paramList5 = '';
+        foreach ($fields as $field) {
+            $paramList.= sprintf("`%s`, ", $field['Field']);
+            $paramList2.= sprintf(":%s, ", $field['Field']);
+            $paramList3.= sprintf('$statement->bindParam(\'%s\', $%s->%s);%s', $field['Field'], $entityName, $field['Field'], PHP_EOL);
+            $paramList3.= sprintf("%'\t1s", '');
+            if ($field['Field'] != 'id') {
+                $paramList4.= sprintf("`%s` = :%s, ", $field['Field'], $field['Field']);
+                $paramList5.= sprintf("if (isset(\$data->%s)) { $%s->%s = \$data->%s; }%s", $field['Field'], $entityName, $field['Field'], $field['Field'], PHP_EOL);
+                $paramList5.= sprintf("%'\t1s", '');
+            }
+        }
+        $fieldList = substr_replace($paramList, '', -2);
+        $fieldList2 = substr_replace($paramList2, '', -2);
+        $fieldList3 = substr_replace($paramList3, '', -2);
+        $fieldList4 = substr_replace($paramList4, '', -2);
+        $fieldList5 = substr_replace($paramList5, '', -2);
+
+        // Get Base Query For Insert Function.
+        $insertQueryFunction = '$query = \'INSERT INTO `'.$entityName.'` ('.$fieldList.') VALUES ('.$fieldList2.')\';
+        $statement = $this->getDb()->prepare($query);
+        '.$fieldList3.'
+        $statement->execute();
+
+        return $this->checkAndGet'.$entityNameUpper.'((int) $this->getDb()->lastInsertId());';
+
+        // Get Base Query For Update Function.
+        $updateQueryFunction = ''.$fieldList5.'
+
+        $query = \'UPDATE `'.$entityName.'` SET '.$fieldList4.' WHERE `id` = :id\';
+        $statement = $this->getDb()->prepare($query);
+        '.$fieldList3.'
+        $statement->execute();
+
+        return $this->checkAndGet'.$entityNameUpper.'((int) $'.$entityName.'->id);';
+
+        return [$insertQueryFunction, $updateQueryFunction];
+    }
+
+    private function updateRoutes($entityName)
+    {
+        $routes = '
+$app->group("/'.$entityName.'", function () use ($app) {
+    $app->get("", "App\Controller\\'.ucfirst($entityName).'\GetAll");
+    $app->get("/[{id}]", "App\Controller\\'.ucfirst($entityName).'\GetOne");
+    $app->post("", "App\Controller\\'.ucfirst($entityName).'\Create");
+    $app->put("/[{id}]", "App\Controller\\'.ucfirst($entityName).'\Update");
+    $app->delete("/[{id}]", "App\Controller\\'.ucfirst($entityName).'\Delete");
+});
+';
+        $file = __DIR__ . '/../../App/Routes.php';
+        $content = file_get_contents($file);
+        $content.= $routes;
+        file_put_contents($file, $content);
+    }
+
+    private function updateRepository($entityName)
+    {
+        $repository = '
+$container["'.$entityName.'_repository"] = function (ContainerInterface $container): App\Repository\\'.ucfirst($entityName).'Repository {
+    return new App\Repository\\'.ucfirst($entityName).'Repository($container->get("db"));
+};
+';
+        $file = __DIR__ . '/../../App/Repositories.php';
+        $repositoryContent = file_get_contents($file);
+        $repositoryContent.= $repository;
+        file_put_contents($file, $repositoryContent);
+    }
+
+    private function updateServices($entityName)
+    {
+        $service = '
+$container["'.$entityName.'_service"] = function (ContainerInterface $container): App\Service\\'.ucfirst($entityName).'Service {
+    return new App\Service\\'.ucfirst($entityName).'Service($container->get("'.$entityName.'_repository"));
+};
+';
+        $file = __DIR__ . '/../../App/Services.php';
+        $serviceContent = file_get_contents($file);
+        $serviceContent.= $service;
+        file_put_contents($file, $serviceContent);
     }
 }
