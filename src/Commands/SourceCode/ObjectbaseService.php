@@ -32,9 +32,6 @@ class ObjectbaseService extends BaseService
     public function createObjectbase($input)
     {
         $objectbase = json_decode(json_encode($input), false);
-//        if (!isset($objectbase->objectbase)) {
-//            throw new ObjectbaseException('The field: objectbase, is required.', 400);
-//        }
 
         return $this->objectbaseRepository->createObjectbase($objectbase);
     }
@@ -43,10 +40,6 @@ class ObjectbaseService extends BaseService
     {
         $objectbase = $this->checkAndGetObjectbase($objectbaseId);
         $data = json_decode(json_encode($input), false);
-//        if (!isset($data->objectbase)) {
-//            throw new ObjectbaseException('The field: objectbase, is required.', 400);
-//        }
-//        $objectbase->objectbase = $data->objectbase;
 
         return $this->objectbaseRepository->updateObjectbase($objectbase, $data);
     }

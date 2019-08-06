@@ -36,12 +36,12 @@ class ObjectbaseRepository extends BaseRepository
 
     public function createObjectbase($objectbase)
     {
-        #ppp
+        #createFunction
     }
 
     public function updateObjectbase($objectbase, $data)
     {
-        #uuu
+        #updateFunction
     }
 
     public function deleteObjectbase(int $objectbaseId): string

@@ -9,7 +9,7 @@ use Symfony\Component\Console\Input\InputArgument;
 
 class GenerateCrudEntityCommand extends Command
 {
-    const COMMAND_VERSION = '0.0.1';
+    const COMMAND_VERSION = '0.0.2';
 
     public function __construct($app)
     {
@@ -36,7 +36,7 @@ class GenerateCrudEntityCommand extends Command
         // Get Entity Name.
         $entityName = $input->getArgument('entity');
         $output->writeln('Generate New Entity: ' . $entityName);
-        $entityName2 = ucfirst($entityName);
+        $entityNameUpper = ucfirst($entityName);
 
         // Get Entity Fields.
         $db = $this->container->get('db');
@@ -74,7 +74,7 @@ class GenerateCrudEntityCommand extends Command
         '.$fieldList3.'
         $statement->execute();
 
-        return $this->checkAndGet'.$entityName2.'((int) $this->getDb()->lastInsertId());';
+        return $this->checkAndGet'.$entityNameUpper.'((int) $this->getDb()->lastInsertId());';
 
         // Get Base Query For Update Function.
         $updatequeryFunction = ''.$fieldList5.'
@@ -84,7 +84,7 @@ class GenerateCrudEntityCommand extends Command
         '.$fieldList3.'
         $statement->execute();
 
-        return $this->checkAndGet'.$entityName2.'((int) $'.$entityName.'->id);';
+        return $this->checkAndGet'.$entityNameUpper.'((int) $'.$entityName.'->id);';
 
         // Add Routes.
         $routes = '
@@ -130,17 +130,17 @@ $container["'.$entityName.'_service"] = function (ContainerInterface $container)
 
         // Replace CRUD Controller Template for New Entity.
         $base = $target . '/Base.php';
-        shell_exec("sed -i .bkp -e 's/Objectbase/$entityName2/g' $base");
+        shell_exec("sed -i .bkp -e 's/Objectbase/$entityNameUpper/g' $base");
         shell_exec("sed -i .bkp -e 's/objectbase/$entityName/g' $base");
-        shell_exec("sed -i .bkp -e 's/Objectbase/$entityName2/g' $target/Create.php");
+        shell_exec("sed -i .bkp -e 's/Objectbase/$entityNameUpper/g' $target/Create.php");
         shell_exec("sed -i .bkp -e 's/objectbase/$entityName/g' $target/Create.php");
-        shell_exec("sed -i .bkp -e 's/Objectbase/$entityName2/g' $target/Delete.php");
+        shell_exec("sed -i .bkp -e 's/Objectbase/$entityNameUpper/g' $target/Delete.php");
         shell_exec("sed -i .bkp -e 's/objectbase/$entityName/g' $target/Delete.php");
-        shell_exec("sed -i .bkp -e 's/Objectbase/$entityName2/g' $target/GetAll.php");
+        shell_exec("sed -i .bkp -e 's/Objectbase/$entityNameUpper/g' $target/GetAll.php");
         shell_exec("sed -i .bkp -e 's/objectbase/$entityName/g' $target/GetAll.php");
-        shell_exec("sed -i .bkp -e 's/Objectbase/$entityName2/g' $target/GetOne.php");
+        shell_exec("sed -i .bkp -e 's/Objectbase/$entityNameUpper/g' $target/GetOne.php");
         shell_exec("sed -i .bkp -e 's/objectbase/$entityName/g' $target/GetOne.php");
-        shell_exec("sed -i .bkp -e 's/Objectbase/$entityName2/g' $target/Update.php");
+        shell_exec("sed -i .bkp -e 's/Objectbase/$entityNameUpper/g' $target/Update.php");
         shell_exec("sed -i .bkp -e 's/objectbase/$entityName/g' $target/Update.php");
 
         // Remove Any Temp Files.
@@ -150,7 +150,7 @@ $container["'.$entityName.'_service"] = function (ContainerInterface $container)
         $source = __DIR__ . '/../../Commands/SourceCode/ObjectbaseException.php';
         $target = __DIR__ . '/../../Exception/' . ucfirst($entityName). 'Exception.php';
         shell_exec("cp $source $target");
-        shell_exec("sed -i .bkp -e 's/Objectbase/$entityName2/g' $target");
+        shell_exec("sed -i .bkp -e 's/Objectbase/$entityNameUpper/g' $target");
         shell_exec("sed -i .bkp -e 's/objectbase/$entityName/g' $target");
         shell_exec("rm -f $target.bkp");
 
@@ -158,7 +158,7 @@ $container["'.$entityName.'_service"] = function (ContainerInterface $container)
         $source = __DIR__ . '/../../Commands/SourceCode/ObjectbaseService.php';
         $target = __DIR__ . '/../../Service/' . ucfirst($entityName). 'Service.php';
         shell_exec("cp $source $target");
-        shell_exec("sed -i .bkp -e 's/Objectbase/$entityName2/g' $target");
+        shell_exec("sed -i .bkp -e 's/Objectbase/$entityNameUpper/g' $target");
         shell_exec("sed -i .bkp -e 's/objectbase/$entityName/g' $target");
         shell_exec("rm -f $target.bkp");
 
@@ -166,19 +166,18 @@ $container["'.$entityName.'_service"] = function (ContainerInterface $container)
         $source = __DIR__ . '/../../Commands/SourceCode/ObjectbaseRepository.php';
         $target = __DIR__ . '/../../Repository/' . ucfirst($entityName). 'Repository.php';
         shell_exec("cp $source $target");
-        shell_exec("sed -i .bkp -e 's/Objectbase/$entityName2/g' $target");
+        shell_exec("sed -i .bkp -e 's/Objectbase/$entityNameUpper/g' $target");
         shell_exec("sed -i .bkp -e 's/objectbase/$entityName/g' $target");
-//        shell_exec("sed -i .bkp -e 's/#ppp/$myquery/g' $destino");
         shell_exec("rm -f $target.bkp");
 
-        // Replace and Update Repository Insert Function.
+        // Replace and Update Repository with Insert Query Function.
         $entityRepository = file_get_contents($target);
-        $repositoryData = preg_replace("/".'#ppp'."/", $insertQueryFunction, $entityRepository);
+        $repositoryData = preg_replace("/".'#createFunction'."/", $insertQueryFunction, $entityRepository);
         file_put_contents($target, $repositoryData);
 
-        // Replace and Update Repository Update Function.
+        // Replace and Update Repository with Update Query Function.
         $entityRepositoryUpdate = file_get_contents($target);
-        $repositoryDataUpdate = preg_replace("/".'#uuu'."/", $updatequeryFunction, $entityRepositoryUpdate);
+        $repositoryDataUpdate = preg_replace("/".'#updateFunction'."/", $updatequeryFunction, $entityRepositoryUpdate);
         file_put_contents($target, $repositoryDataUpdate);
 
         $output->writeln('Script Finish ;-)');
