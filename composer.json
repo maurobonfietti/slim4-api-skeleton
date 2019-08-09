@@ -13,7 +13,8 @@
     ],
     "require": {
         "slim/slim": "^3.1",
-        "vlucas/phpdotenv": "^2.4"
+        "vlucas/phpdotenv": "^2.4",
+        "maurobonfietti/skel-api-slim-php-crud-generator": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0",
@@ -31,6 +32,7 @@
         "coverage": "phpunit --coverage-text --coverage-html coverage",
         "up": "docker-compose up -d --build",
         "down": "docker-compose down",
-        "crud": "php console api:generate:endpoints"
+        "crud": "php console api:generate:endpoints",
+        "crud2": "./vendor/maurobonfietti/skel-api-slim-php-crud-generator/bin/console api:generate:endpoints"
     }
 }
