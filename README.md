@@ -1,8 +1,8 @@
 # SKEL API SLIM PHP
 
-Skeleton for RESTful API development, using Slim PHP micro framework.
+Skeleton for RESTful API development, using [Slim PHP micro framework](http://www.slimframework.com).
 
-Used technologies: PHP, Slim PHP, MySQL, PHPUnit, Env Var, Docker & Docker Compose.
+Used technologies: PHP, Slim PHP, MySQL, PHPUnit, env var, Docker & Docker Compose.
 
 ## QUICK INSTALL:
 
@@ -61,11 +61,12 @@ $ docker-compose down
 ### LIST OF DEVELOPMENT DEPENDENCIES:
 
 - [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit): The PHP Unit Testing framework.
+- [maurobonfietti/skel-api-slim-php-crud-generator](https://github.com/maurobonfietti/skel-api-slim-php-crud-generator): CRUD Generator for Rest-Api-Slim-PHP Skeleton.
 
 
 ## DOCUMENTATION:
 
-### ENDPOINTS LIST:
+### DEFAULT ENDPOINTS:
 
 - Help: `GET /`
 
