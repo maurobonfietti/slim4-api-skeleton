@@ -7,6 +7,6 @@ use Symfony\Component\Console\Application;
 
 $application = new Application();
 
-$application->add(new App\Commands\Utils\GenerateCrudEntityCommand($app));
+$application->add(new App\Command\CrudGeneratorCommand($app));
 
 $application->run();
