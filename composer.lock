@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1880c234618377d1d02047b4caa11fb1",
+    "content-hash": "c707c5ef3c9f803a465bb3ac898bc08e",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -36,44 +36,6 @@
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
             "time": "2017-02-14T19:40:03+00:00"
-        },
-        {
-            "name": "maurobonfietti/skel-api-slim-php-crud-generator",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/maurobonfietti/skel-api-slim-php-crud-generator.git",
-                "reference": "f8eb5fbd1b8f9f0cfb4f422f4cadc0992bee4cb0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/maurobonfietti/skel-api-slim-php-crud-generator/zipball/f8eb5fbd1b8f9f0cfb4f422f4cadc0992bee4cb0",
-                "reference": "f8eb5fbd1b8f9f0cfb4f422f4cadc0992bee4cb0",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "symfony/console": "^3.3"
-            },
-            "type": "package",
-            "autoload": {
-                "psr-4": {
-                    "App\\": "src/",
-                    "Tests\\": "tests/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Mauro Bonfietti",
-                    "email": "mauro.bonfietti@gmail.com",
-                    "homepage": "https://github.com/maurobonfietti"
-                }
-            ],
-            "description": "CRUD Generator For Rest-Api-Slim-PHP Skeleton...",
-            "time": "2019-08-09T18:48:43+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -507,6 +469,44 @@
                 "instantiate"
             ],
             "time": "2019-03-17T17:37:11+00:00"
+        },
+        {
+            "name": "maurobonfietti/skel-api-slim-php-crud-generator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maurobonfietti/skel-api-slim-php-crud-generator.git",
+                "reference": "0e6389fc8e6846e30582651269a75f7e39f5ed51"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maurobonfietti/skel-api-slim-php-crud-generator/zipball/0e6389fc8e6846e30582651269a75f7e39f5ed51",
+                "reference": "0e6389fc8e6846e30582651269a75f7e39f5ed51",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "symfony/console": "^3.3"
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "App\\": "src/",
+                    "Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Mauro Bonfietti",
+                    "email": "mauro.bonfietti@gmail.com",
+                    "homepage": "https://github.com/maurobonfietti"
+                }
+            ],
+            "description": "CRUD Generator for Rest-Api-Slim-PHP Skeleton.",
+            "time": "2019-08-21T01:01:48+00:00"
         },
         {
             "name": "myclabs/deep-copy",

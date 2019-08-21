@@ -13,12 +13,12 @@
     ],
     "require": {
         "slim/slim": "^3.1",
-        "vlucas/phpdotenv": "^2.4",
-        "maurobonfietti/skel-api-slim-php-crud-generator": "dev-master"
+        "vlucas/phpdotenv": "^2.4"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0",
-        "symfony/console": "^3.3"
+        "symfony/console": "^3.3",
+        "maurobonfietti/skel-api-slim-php-crud-generator": "dev-master"
     },
     "autoload": {
         "psr-4": {
