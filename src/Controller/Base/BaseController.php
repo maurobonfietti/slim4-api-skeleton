@@ -14,12 +14,13 @@ class BaseController
 
     protected $container;
 
-    public function __construct(Container $container)
+    public function __construct($container)
     {
+//        var_dump($container); exit;
         $this->container = $container;
     }
 
-    public function getHelp(Request $request, Response $response): Response
+    public function getHelp($request, $response)
     {
         $message = [
             'api' => self::API_NAME,
@@ -27,10 +28,19 @@ class BaseController
             'timestamp' => time(),
         ];
 
-        return $response->withJson($message, 200);
+//        $response->getBody()->write("hello api version: " . self::API_VERSION);
+
+//        return $response;
+        
+//        $data = array('name' => 'Rob', 'age' => 40);
+        $payload = json_encode($message);
+
+        $response->getBody()->write($payload);
+        return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+//        return $response->withJson($message, 200);
     }
 
-    public function getStatus(Request $request, Response $response): Response
+    public function getStatus($request, $response)
     {
         $this->container->get('db');
         $status = [
@@ -42,6 +52,14 @@ class BaseController
             'timestamp' => time(),
         ];
 
-        return $response->withJson($status, 200);
+//        $response->getBody()->write("hello status: " . 'OK');
+
+//        return $response;
+        $payload = json_encode($status);
+
+        $response->getBody()->write($payload);
+        return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+        
+//        return $response->withJson($status, 200);
     }
 }

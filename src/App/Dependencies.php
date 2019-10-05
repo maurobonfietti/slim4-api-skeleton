@@ -3,10 +3,17 @@
 use App\Handler\ApiError;
 use Psr\Container\ContainerInterface;
 
-$container = $app->getContainer();
+use Pimple\Container;
 
-$container['db'] = function (ContainerInterface $c): PDO {
-    $db = $c->get('settings')['db'];
+//$ccc = $app->getContainer();
+//var_dump($ccc); exit;
+
+//$container = $app->getContainer();
+//
+$container['db'] = function (Container $c): PDO {
+//    var_dump($c['settings']); exit;
+//    $db = $c->get('settings')['db'];
+    $db = $c['settings']['db'];
     $database = sprintf('mysql:host=%s;dbname=%s', $db['hostname'], $db['database']);
     $pdo = new PDO($database, $db['username'], $db['password']);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -15,7 +22,13 @@ $container['db'] = function (ContainerInterface $c): PDO {
 
     return $pdo;
 };
+//
+//$container['errorHandler'] = function (): ApiError {
+//    return new ApiError;
+//};
 
-$container['errorHandler'] = function (): ApiError {
-    return new ApiError;
-};
+//return function (Container $container) {
+//    $container[HomePageHandler::class] = static function ($c) {
+//        return new HomePageHandler($c['settings']['default_name']);
+//    };
+//};
