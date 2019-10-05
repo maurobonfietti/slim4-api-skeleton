@@ -39,9 +39,9 @@ class TeamRepository extends BaseRepository
         $query = 'INSERT INTO `team` (`id`, `name`, `stadium`, `capacity`) VALUES (:id, :name, :stadium, :capacity)';
         $statement = $this->getDb()->prepare($query);
         $statement->bindParam('id', $team->id);
-	$statement->bindParam('name', $team->name);
-	$statement->bindParam('stadium', $team->stadium);
-	$statement->bindParam('capacity', $team->capacity);
+        $statement->bindParam('name', $team->name);
+        $statement->bindParam('stadium', $team->stadium);
+        $statement->bindParam('capacity', $team->capacity);
         $statement->execute();
 
         return $this->checkAndGetTeam((int) $this->getDb()->lastInsertId());
@@ -49,16 +49,22 @@ class TeamRepository extends BaseRepository
 
     public function updateTeam($team, $data)
     {
-        if (isset($data->name)) { $team->name = $data->name; }
-        if (isset($data->stadium)) { $team->stadium = $data->stadium; }
-        if (isset($data->capacity)) { $team->capacity = $data->capacity; }
+        if (isset($data->name)) {
+            $team->name = $data->name;
+        }
+        if (isset($data->stadium)) {
+            $team->stadium = $data->stadium;
+        }
+        if (isset($data->capacity)) {
+            $team->capacity = $data->capacity;
+        }
 
         $query = 'UPDATE `team` SET `name` = :name, `stadium` = :stadium, `capacity` = :capacity WHERE `id` = :id';
         $statement = $this->getDb()->prepare($query);
         $statement->bindParam('id', $team->id);
-	$statement->bindParam('name', $team->name);
-	$statement->bindParam('stadium', $team->stadium);
-	$statement->bindParam('capacity', $team->capacity);
+        $statement->bindParam('name', $team->name);
+        $statement->bindParam('stadium', $team->stadium);
+        $statement->bindParam('capacity', $team->capacity);
         $statement->execute();
 
         return $this->checkAndGetTeam((int) $team->id);

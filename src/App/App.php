@@ -4,7 +4,6 @@ use Pimple\Container;
 use Pimple\Psr11\Container as Psr11Container;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Factory\AppFactory;
-//use Slim\Psr7\Response;
 
 require __DIR__ . '/../../vendor/autoload.php';
 $baseDir = __DIR__ . '/../../';
@@ -20,16 +19,8 @@ $app = AppFactory::create(null, new Psr11Container($container));
 
 $app->addRoutingMiddleware();
 $app->addBodyParsingMiddleware();
-//$app->addErrorMiddleware(true, true, true);
 
-$customErrorHandler = function (
-    ServerRequestInterface $request,
-    Throwable $exception,
-    bool $displayErrorDetails,
-    bool $logErrors,
-    bool $logErrorDetails
-) use ($app) {
-
+$customErrorHandler = function (ServerRequestInterface $request, Throwable $exception, bool $displayErrorDetails, bool $logErrors, bool $logErrorDetails) use ($app) {
     $statusCode = is_int($exception->getCode()) ? $exception->getCode() : 500;
     $className = new \ReflectionClass(get_class($exception));
     $data = [
@@ -38,11 +29,8 @@ $customErrorHandler = function (
         'status' => 'error',
         'code' => $statusCode,
     ];
-
     $response = $app->getResponseFactory()->createResponse();
-    $response->getBody()->write(
-        json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT)
-    );
+    $response->getBody()->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
 
     return $response->withStatus($statusCode)->withHeader("Content-type", "application/json");
 };
