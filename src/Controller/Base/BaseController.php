@@ -2,9 +2,9 @@
 
 namespace App\Controller\Base;
 
-use Slim\Container;
-use Slim\Http\Request;
-use Slim\Http\Response;
+//use Slim\Container;
+//use Slim\Http\Request;
+//use Slim\Http\Response;
 
 class BaseController
 {
@@ -16,7 +16,6 @@ class BaseController
 
     public function __construct($container)
     {
-//        var_dump($container); exit;
         $this->container = $container;
     }
 
@@ -51,7 +50,6 @@ class BaseController
 
         $response->getBody()->write($payload);
         return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
-        
 //        return $response->withJson($status, 200);
     }
 }

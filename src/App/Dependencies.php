@@ -1,8 +1,5 @@
 <?php declare(strict_types=1);
 
-//use App\Handler\ApiError;
-//use Psr\Container\ContainerInterface;
-
 use Pimple\Container;
 
 $container['db'] = function (Container $c): PDO {
@@ -16,7 +13,3 @@ $container['db'] = function (Container $c): PDO {
 
     return $pdo;
 };
-//
-//$container['errorHandler'] = function (): ApiError {
-//    return new ApiError;
-//};
