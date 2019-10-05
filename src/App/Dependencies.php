@@ -1,17 +1,11 @@
 <?php declare(strict_types=1);
 
-use App\Handler\ApiError;
-use Psr\Container\ContainerInterface;
+//use App\Handler\ApiError;
+//use Psr\Container\ContainerInterface;
 
 use Pimple\Container;
 
-//$ccc = $app->getContainer();
-//var_dump($ccc); exit;
-
-//$container = $app->getContainer();
-//
 $container['db'] = function (Container $c): PDO {
-//    var_dump($c['settings']); exit;
 //    $db = $c->get('settings')['db'];
     $db = $c['settings']['db'];
     $database = sprintf('mysql:host=%s;dbname=%s', $db['hostname'], $db['database']);
@@ -25,10 +19,4 @@ $container['db'] = function (Container $c): PDO {
 //
 //$container['errorHandler'] = function (): ApiError {
 //    return new ApiError;
-//};
-
-//return function (Container $container) {
-//    $container[HomePageHandler::class] = static function ($c) {
-//        return new HomePageHandler($c['settings']['default_name']);
-//    };
 //};

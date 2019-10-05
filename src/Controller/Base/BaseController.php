@@ -28,11 +28,6 @@ class BaseController
             'timestamp' => time(),
         ];
 
-//        $response->getBody()->write("hello api version: " . self::API_VERSION);
-
-//        return $response;
-        
-//        $data = array('name' => 'Rob', 'age' => 40);
         $payload = json_encode($message);
 
         $response->getBody()->write($payload);
@@ -52,9 +47,6 @@ class BaseController
             'timestamp' => time(),
         ];
 
-//        $response->getBody()->write("hello status: " . 'OK');
-
-//        return $response;
         $payload = json_encode($status);
 
         $response->getBody()->write($payload);
