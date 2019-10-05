@@ -29,7 +29,23 @@ class TestCase extends PHPUnit_TestCase
         $app = AppFactory::create(null, new Psr11Container($container));
         $app->addRoutingMiddleware();
         $app->addBodyParsingMiddleware();
-        $app->addErrorMiddleware(true, true, true);
+        $customErrorHandler = function ($request, $exception, bool $displayErrorDetails, bool $logErrors, bool $logErrorDetails) use ($app) {
+            $statusCode = is_int($exception->getCode()) ? $exception->getCode() : 500;
+            $className = new \ReflectionClass(get_class($exception));
+            $data = [
+                'message' => $exception->getMessage(),
+                'class' => $className->getShortName(),
+                'status' => 'error',
+                'code' => $statusCode,
+            ];
+            $response = $app->getResponseFactory()->createResponse();
+            $response->getBody()->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
+
+            return $response->withStatus($statusCode)->withHeader("Content-type", "application/json");
+        };
+
+        $errorMiddleware = $app->addErrorMiddleware(true, true, true);
+        $errorMiddleware->setDefaultErrorHandler($customErrorHandler);
         require $baseDir . 'src/App/Dependencies.php';
         require $baseDir . 'src/App/Services.php';
         require $baseDir . 'src/App/Repositories.php';
