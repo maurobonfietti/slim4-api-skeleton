@@ -16,16 +16,21 @@ class BaseTest extends TestCase
 {
 //    use HttpTestTrait;
 
-    public function testAsd1()
-    {
-        $app = $this->getAppInstance();
-        
-        $request = $this->createRequest('GET', '/status');
-        $response = $app->handle($request);
-//        var_dump($response->getStatusCode()); exit;
-        $payload = (string) $response->getBody();
-        var_dump($payload); exit;
-    }
+//    public function testAsd1()
+//    {
+//        $app = $this->getAppInstance();
+//        
+//        $request = $this->createRequest('GET', '/status');
+//        $response = $app->handle($request);
+////        var_dump($response->getStatusCode()); exit;
+//        $payload = (string) $response->getBody();
+////        var_dump($payload); exit;
+//        $this->assertEquals(200, $response->getStatusCode());
+//        $this->assertStringContainsString('api', (string) $response->getBody());
+//        $this->assertStringContainsString('version', (string) $response->getBody());
+//        $this->assertStringContainsString('time', (string) $response->getBody());
+//        $this->assertStringNotContainsString('error', (string) $response->getBody());
+//    }
 
 //    public function testApiHelp()
 //    {
@@ -34,28 +39,37 @@ class BaseTest extends TestCase
 //        var_dump($response->getStatusCode()); exit;
 //    }
 
-//    public function testApiHelp()
-//    {
-//        $response = $this->runApp('GET', '/');
+    public function testApiHelp()
+    {
+        $app = $this->getAppInstance();
+        
+        $request = $this->createRequest('GET', '/status');
+        $response = $app->handle($request);
+//        var_dump($response->getStatusCode()); exit;
+        $payload = (string) $response->getBody();
+//        var_dump($payload); exit;
+        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertStringContainsString('api', (string) $response->getBody());
+        $this->assertStringContainsString('version', (string) $response->getBody());
+        $this->assertStringContainsString('time', (string) $response->getBody());
+        $this->assertStringNotContainsString('error', (string) $response->getBody());
+    }
 //
-//        $this->assertEquals(200, $response->getStatusCode());
-//        $this->assertStringContainsString('api', (string) $response->getBody());
-//        $this->assertStringContainsString('version', (string) $response->getBody());
-//        $this->assertStringContainsString('time', (string) $response->getBody());
-//        $this->assertStringNotContainsString('error', (string) $response->getBody());
-//    }
-//
-//    public function testStatus()
-//    {
+    public function testStatus()
+    {
+        $app = $this->getAppInstance();
+        
+        $request = $this->createRequest('GET', '/status');
+        $response = $app->handle($request);
 //        $response = $this->runApp('GET', '/status');
-//
-//        $this->assertEquals(200, $response->getStatusCode());
-//        $this->assertStringContainsString('api', (string) $response->getBody());
-//        $this->assertStringContainsString('version', (string) $response->getBody());
-//        $this->assertStringContainsString('time', (string) $response->getBody());
-//        $this->assertStringContainsString('database', (string) $response->getBody());
-//        $this->assertStringNotContainsString('error', (string) $response->getBody());
-//        $this->assertStringNotContainsString('failed', (string) $response->getBody());
-//        $this->assertStringNotContainsString('PDOException', (string) $response->getBody());
-//    }
+
+        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertStringContainsString('api', (string) $response->getBody());
+        $this->assertStringContainsString('version', (string) $response->getBody());
+        $this->assertStringContainsString('time', (string) $response->getBody());
+        $this->assertStringContainsString('database', (string) $response->getBody());
+        $this->assertStringNotContainsString('error', (string) $response->getBody());
+        $this->assertStringNotContainsString('failed', (string) $response->getBody());
+        $this->assertStringNotContainsString('PDOException', (string) $response->getBody());
+    }
 }
