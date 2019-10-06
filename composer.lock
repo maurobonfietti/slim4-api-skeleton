@@ -786,12 +786,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/maurobonfietti/skel-api-slim-php-crud-generator.git",
-                "reference": "ac95204b961f3b0c486a2c84a3b938fc6b653fd6"
+                "reference": "c59db88df10a36c387b4ffad18ae0d92c8bd1c2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maurobonfietti/skel-api-slim-php-crud-generator/zipball/ac95204b961f3b0c486a2c84a3b938fc6b653fd6",
-                "reference": "ac95204b961f3b0c486a2c84a3b938fc6b653fd6",
+                "url": "https://api.github.com/repos/maurobonfietti/skel-api-slim-php-crud-generator/zipball/c59db88df10a36c387b4ffad18ae0d92c8bd1c2b",
+                "reference": "c59db88df10a36c387b4ffad18ae0d92c8bd1c2b",
                 "shasum": ""
             },
             "require": {
@@ -816,7 +816,7 @@
                 }
             ],
             "description": "CRUD Generator for Rest-Api-Slim-PHP Skeleton.",
-            "time": "2019-09-05T03:00:27+00:00"
+            "time": "2019-10-01T02:24:07+00:00"
         },
         {
             "name": "myclabs/deep-copy",
