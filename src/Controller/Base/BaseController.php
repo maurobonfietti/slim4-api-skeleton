@@ -4,7 +4,7 @@ namespace App\Controller\Base;
 
 class BaseController
 {
-    const API_NAME = 'skel-api-slim-php';
+    const API_NAME = 'slim4-api-skeleton';
 
     const API_VERSION = '0.0.1';
 

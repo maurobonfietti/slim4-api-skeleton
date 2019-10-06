@@ -1,8 +1,8 @@
 {
-    "name": "maurobonfietti/skel-api-slim-php",
-    "description": "Skeleton for RESTful API development, using Slim PHP micro framework.",
-    "keywords": ["php", "slim-micro-framework", "rest-api", "mysql", "slim3", "slim", "rest", "api"],
-    "homepage": "https://github.com/maurobonfietti/skel-api-slim-php",
+    "name": "maurobonfietti/slim4-api-skeleton",
+    "description": "Skeleton for RESTful API development, using PHP and Slim 4 micro framework.",
+    "keywords": ["php", "slim-micro-framework", "rest-api", "mysql", "slim4", "slim", "rest", "api"],
+    "homepage": "https://github.com/maurobonfietti/slim4-api-skeleton",
     "license": "MIT",
     "authors": [
         {

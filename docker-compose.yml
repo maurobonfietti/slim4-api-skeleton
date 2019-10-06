@@ -3,7 +3,7 @@ version: '3'
 services:
   nginx:
     image: nginx:latest
-    container_name: skel-api-slim-php-nginx-container
+    container_name: slim4-api-skeleton-nginx-container
     ports:
     - "8081:80"
     volumes:
@@ -14,7 +14,7 @@ services:
 
   php-fpm:
     build: ./docker/php7
-    container_name: skel-api-slim-php-php-container
+    container_name: slim4-api-skeleton-php-container
     links:
       - mysql
     environment:
@@ -23,7 +23,7 @@ services:
       - PHP_FPM_SERVER_PORT=9000
       - PHP_FPM_TIMEOUT=${HTTPD_TIMEOUT_TO_PHP_FPM:-180}
       - DB_HOSTNAME=mysql
-      - DB_DATABASE=skel_api_slim_php
+      - DB_DATABASE=slim4_api_skeleton
       - DB_USERNAME=root
       - DB_PASSWORD=
 
@@ -38,7 +38,7 @@ services:
       - 33060:3306
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_DATABASE: skel_api_slim_php
+      MYSQL_DATABASE: slim4_api_skeleton
       MYSQL_USER: root
       MYSQL_PASSWORD: 
       MYSQL_ROOT_PASSWORD: 
