@@ -1,8 +1,8 @@
-# SKEL API SLIM PHP
+# SLIM 4 - API SKELETON
 
 Skeleton for RESTful API development, using [Slim PHP micro framework](http://www.slimframework.com).
 
-Used technologies: PHP, Slim PHP, MySQL, PHPUnit, env var, Docker & Docker Compose.
+Used technologies: PHP, Slim 4 microframework, MySQL, PHPUnit, env var, Docker & Docker Compose.
 
 ## QUICK INSTALL:
 
@@ -18,7 +18,7 @@ Used technologies: PHP, Slim PHP, MySQL, PHPUnit, env var, Docker & Docker Compo
 In your terminal execute this commands:
 
 ```bash
-$ git clone https://github.com/maurobonfietti/skel-api-slim-php.git && cd skel-api-slim-php
+$ git clone https://github.com/maurobonfietti/slim4-api-skeleton && cd slim4-api-skeleton
 $ cp .env.example .env
 $ composer install
 $ composer test
