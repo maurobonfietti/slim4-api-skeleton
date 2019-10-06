@@ -23,6 +23,9 @@ $ cp .env.example .env
 $ composer install
 $ composer test
 $ composer start
+
+$ # You will need a MySQL Database. Create a db executing for example:
+$ mysql -e "CREATE DATABASE slim4_api_skeleton"
 ```
 
 
