@@ -22,10 +22,6 @@ $container["user_service"] = function ($container): App\Service\UserService {
     return new App\Service\UserService($container["user_repository"]);
 };
 
-$container["bot_service"] = function ($container): App\Service\BotService {
-    return new App\Service\BotService($container["bot_repository"]);
-};
-
 $container["movies_service"] = function ($container): App\Service\MoviesService {
     return new App\Service\MoviesService($container["movies_repository"]);
 };

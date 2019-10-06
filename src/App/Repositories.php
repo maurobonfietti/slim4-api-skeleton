@@ -22,10 +22,6 @@ $container["user_repository"] = function ($container): App\Repository\UserReposi
     return new App\Repository\UserRepository($container["db"]);
 };
 
-$container["bot_repository"] = function ($container): App\Repository\BotRepository {
-    return new App\Repository\BotRepository($container["db"]);
-};
-
 $container["movies_repository"] = function ($container): App\Repository\MoviesRepository {
     return new App\Repository\MoviesRepository($container["db"]);
 };
