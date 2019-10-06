@@ -2,7 +2,6 @@
 
 return [
     'settings' => [
-        'displayErrorDetails' => getenv('DISPLAY_ERROR_DETAILS'),
         'db' => [
             'hostname' => getenv('DB_HOSTNAME'),
             'database' => getenv('DB_DATABASE'),

@@ -2,11 +2,13 @@
 
 namespace Tests\integration;
 
-class BaseTest extends BaseTestCase
+class BaseTest extends TestCase
 {
     public function testApiHelp()
     {
-        $response = $this->runApp('GET', '/');
+        $app = $this->getAppInstance();
+        $request = $this->createRequest('GET', '/status');
+        $response = $app->handle($request);
 
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertStringContainsString('api', (string) $response->getBody());
@@ -17,7 +19,9 @@ class BaseTest extends BaseTestCase
 
     public function testStatus()
     {
-        $response = $this->runApp('GET', '/status');
+        $app = $this->getAppInstance();
+        $request = $this->createRequest('GET', '/status');
+        $response = $app->handle($request);
 
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertStringContainsString('api', (string) $response->getBody());

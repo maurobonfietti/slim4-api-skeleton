@@ -12,7 +12,9 @@
         }
     ],
     "require": {
-        "slim/slim": "^3.12.2",
+        "slim/slim": "^4.2",
+        "slim/psr7": "^0.5.0",
+        "pimple/pimple": "^3.2",
         "vlucas/phpdotenv": "^2.4"
     },
     "require-dev": {
