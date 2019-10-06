@@ -7,7 +7,7 @@ class BaseTest extends TestCase
     public function testApiHelp()
     {
         $app = $this->getAppInstance();
-        $request = $this->createRequest('GET', '/status');
+        $request = $this->createRequest('GET', '/');
         $response = $app->handle($request);
 
         $this->assertEquals(200, $response->getStatusCode());
