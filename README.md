@@ -2,7 +2,7 @@
 
 Skeleton for RESTful API development, using [Slim PHP micro framework](http://www.slimframework.com).
 
-Used technologies: PHP, Slim 4 microframework, MySQL, PHPUnit, env var, Docker & Docker Compose.
+Used technologies: PHP, Slim 4, MySQL, PHPUnit, env var, Docker & Docker Compose.
 
 ## QUICK INSTALL:
 
@@ -23,9 +23,28 @@ $ cp .env.example .env
 $ composer install
 $ composer test
 $ composer start
+```
 
-$ # You will need a MySQL Database. Create a db executing for example:
+
+#### Check and configure the connection with your MySQL database:
+
+By default, the API will need a MySQL Database.
+
+You can create a mysql database executing for example:
+
+```bash
 $ mysql -e "CREATE DATABASE slim4_api_skeleton"
+```
+
+Also, you can check and edit this configuration in your `.env` file.
+
+For example:
+
+```
+DB_HOSTNAME='127.0.0.1'
+DB_DATABASE='slim4_api_skeleton'
+DB_USERNAME='oneUser'
+DB_PASSWORD='onePass'
 ```
 
 
@@ -64,7 +83,7 @@ $ docker-compose down
 ### LIST OF DEVELOPMENT DEPENDENCIES:
 
 - [phpunit/phpunit](https://github.com/sebastianbergmann/phpunit): The PHP Unit Testing framework.
-- [maurobonfietti/skel-api-slim-php-crud-generator](https://github.com/maurobonfietti/skel-api-slim-php-crud-generator): CRUD Generator for Rest-Api-Slim-PHP Skeleton.
+- [maurobonfietti/slim4-api-skeleton-crud-generator](https://github.com/maurobonfietti/slim4-api-skeleton-crud-generator): CRUD Generator for Slim 4 - Api Skeleton.
 
 
 ## DOCUMENTATION:
