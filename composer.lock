@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f45a9693cb436352f4e914c49d89ec70",
+    "content-hash": "6c3ef86b01bd536dba31ac8a6c19aee2",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -524,16 +524,16 @@
         },
         {
             "name": "slim/slim",
-            "version": "4.2.0",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slimphp/Slim.git",
-                "reference": "378abc6f8fe43dc7a73537259da728cb27a64332"
+                "reference": "26020e9a099e69b0b12918115894f7106364dcb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slimphp/Slim/zipball/378abc6f8fe43dc7a73537259da728cb27a64332",
-                "reference": "378abc6f8fe43dc7a73537259da728cb27a64332",
+                "url": "https://api.github.com/repos/slimphp/Slim/zipball/26020e9a099e69b0b12918115894f7106364dcb7",
+                "reference": "26020e9a099e69b0b12918115894f7106364dcb7",
                 "shasum": ""
             },
             "require": {
@@ -604,14 +604,14 @@
                 }
             ],
             "description": "Slim is a PHP micro framework that helps you quickly write simple yet powerful web applications and APIs",
-            "homepage": "https://slimframework.com",
+            "homepage": "https://www.slimframework.com",
             "keywords": [
                 "api",
                 "framework",
                 "micro",
                 "router"
             ],
-            "time": "2019-08-20T19:11:25+00:00"
+            "time": "2019-10-05T21:24:58+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -782,16 +782,16 @@
         },
         {
             "name": "maurobonfietti/skel-api-slim-php-crud-generator",
-            "version": "dev-master",
+            "version": "0.4.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/maurobonfietti/skel-api-slim-php-crud-generator.git",
-                "reference": "c59db88df10a36c387b4ffad18ae0d92c8bd1c2b"
+                "url": "https://github.com/maurobonfietti/slim4-api-skeleton-crud-generator.git",
+                "reference": "9a6a3092baaeab1e0c7180f67c96558582d51992"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maurobonfietti/skel-api-slim-php-crud-generator/zipball/c59db88df10a36c387b4ffad18ae0d92c8bd1c2b",
-                "reference": "c59db88df10a36c387b4ffad18ae0d92c8bd1c2b",
+                "url": "https://api.github.com/repos/maurobonfietti/slim4-api-skeleton-crud-generator/zipball/9a6a3092baaeab1e0c7180f67c96558582d51992",
+                "reference": "9a6a3092baaeab1e0c7180f67c96558582d51992",
                 "shasum": ""
             },
             "require": {
@@ -815,8 +815,8 @@
                     "homepage": "https://github.com/maurobonfietti"
                 }
             ],
-            "description": "CRUD Generator for Rest-Api-Slim-PHP Skeleton.",
-            "time": "2019-10-01T02:24:07+00:00"
+            "description": "CRUD Generator for Slim 4 - Api Skeleton.",
+            "time": "2019-10-08T03:06:07+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -1435,16 +1435,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "8.4.0",
+            "version": "8.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "57e5e77b62086033528ee1f4063ae03035f57894"
+                "reference": "366a4a0f2b971fd43b7c351d621e8dd7d7131869"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/57e5e77b62086033528ee1f4063ae03035f57894",
-                "reference": "57e5e77b62086033528ee1f4063ae03035f57894",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/366a4a0f2b971fd43b7c351d621e8dd7d7131869",
+                "reference": "366a4a0f2b971fd43b7c351d621e8dd7d7131869",
                 "shasum": ""
             },
             "require": {
@@ -1514,7 +1514,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-10-04T03:12:25+00:00"
+            "time": "2019-10-07T12:57:41+00:00"
         },
         {
             "name": "psr/log",
@@ -2180,16 +2180,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v3.4.31",
+            "version": "v3.4.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "4510f04e70344d70952566e4262a0b11df39cb10"
+                "reference": "4727d7f3c99b9dea0ae70ed4f34645728aa90453"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/4510f04e70344d70952566e4262a0b11df39cb10",
-                "reference": "4510f04e70344d70952566e4262a0b11df39cb10",
+                "url": "https://api.github.com/repos/symfony/console/zipball/4727d7f3c99b9dea0ae70ed4f34645728aa90453",
+                "reference": "4727d7f3c99b9dea0ae70ed4f34645728aa90453",
                 "shasum": ""
             },
             "require": {
@@ -2248,20 +2248,20 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2019-08-26T07:52:58+00:00"
+            "time": "2019-10-06T19:52:09+00:00"
         },
         {
             "name": "symfony/debug",
-            "version": "v4.3.4",
+            "version": "v4.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "afcdea44a2e399c1e4b52246ec8d54c715393ced"
+                "reference": "cc5c1efd0edfcfd10b354750594a46b3dd2afbbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/afcdea44a2e399c1e4b52246ec8d54c715393ced",
-                "reference": "afcdea44a2e399c1e4b52246ec8d54c715393ced",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/cc5c1efd0edfcfd10b354750594a46b3dd2afbbe",
+                "reference": "cc5c1efd0edfcfd10b354750594a46b3dd2afbbe",
                 "shasum": ""
             },
             "require": {
@@ -2304,7 +2304,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2019-08-20T14:27:59+00:00"
+            "time": "2019-09-19T15:51:53+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2458,9 +2458,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "maurobonfietti/skel-api-slim-php-crud-generator": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
