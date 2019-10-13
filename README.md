@@ -18,33 +18,31 @@ Used technologies: PHP, Slim 4, MySQL, PHPUnit, env var, Docker & Docker Compose
 In your terminal execute this commands:
 
 ```bash
-$ git clone https://github.com/maurobonfietti/slim4-api-skeleton && cd slim4-api-skeleton
+$ composer create-project maurobonfietti/slim4-api-skeleton your-new-api-name
+$ cd your-new-api-name
 $ cp .env.example .env
-$ composer install
 $ composer test
 $ composer start
 ```
 
 
-#### Check and configure the connection with your MySQL database:
+#### Check and configure your MySQL database connection:
 
 By default, the API will need a MySQL Database.
 
-You can create a mysql database executing for example:
-
-```bash
-$ mysql -e "CREATE DATABASE slim4_api_skeleton"
-```
-
-Also, you can check and edit this configuration in your `.env` file.
-
-For example:
+You can check and edit this configuration in your `.env` file:
 
 ```
 DB_HOSTNAME='127.0.0.1'
 DB_DATABASE='slim4_api_skeleton'
 DB_USERNAME='oneUser'
 DB_PASSWORD='onePass'
+```
+
+You can create a mysql database executing for example:
+
+```bash
+$ mysql -e "CREATE DATABASE slim4_api_skeleton"
 ```
 
 
@@ -93,3 +91,6 @@ $ docker-compose down
 - Help: `GET /`
 
 - Status: `GET /status`
+
+
+#### That's it! Now go build something cool.
