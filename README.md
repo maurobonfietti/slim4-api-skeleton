@@ -18,8 +18,8 @@ Used technologies: PHP, Slim 4, MySQL, PHPUnit, env var, Docker & Docker Compose
 In your terminal execute this commands:
 
 ```bash
-$ composer create-project maurobonfietti/slim4-api-skeleton your-new-api-name
-$ cd your-new-api-name
+$ composer create-project maurobonfietti/slim4-api-skeleton [your-new-api-name]
+$ cd [your-new-api-name]
 $ cp .env.example .env
 $ composer test
 $ composer start
@@ -86,11 +86,45 @@ $ docker-compose down
 
 ## DOCUMENTATION:
 
-### DEFAULT ENDPOINTS:
+### ENDPOINTS BY DEFAULT:
 
-- Help: `GET /`
+#### Get Help:
 
-- Status: `GET /status`
+Request:
+```bash
+$ curl -X GET localhost:8080
+```
+
+Response:
+```javascript
+{
+    "api": "slim4-api-skeleton",
+    "version": "0.0.1",
+    "timestamp": 1570930920
+}
+```
 
 
-#### That's it! Now go build something cool.
+#### Get Status:
+
+Request:
+```bash
+$ curl -X GET localhost:8080/status
+```
+
+Response:
+```javascript
+{
+    "status": {
+        "database": "OK"
+    },
+    "api": "slim4-api-skeleton",
+    "version": "0.0.1",
+    "timestamp": 1570930935
+}
+```
+
+
+## That's it!
+
+Now go build a cool RESTful API ;-)
