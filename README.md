@@ -18,8 +18,8 @@ Used technologies: PHP, Slim 4, MySQL, PHPUnit, env var, Docker & Docker Compose
 In your terminal execute this commands:
 
 ```bash
-$ composer create-project maurobonfietti/slim4-api-skeleton [your-new-api-name]
-$ cd [your-new-api-name]
+$ composer create-project maurobonfietti/slim4-api-skeleton [my-api-name]
+$ cd [my-api-name]
 $ cp .env.example .env
 $ composer test
 $ composer start
@@ -35,8 +35,8 @@ You can check and edit this configuration in your `.env` file:
 ```
 DB_HOSTNAME='127.0.0.1'
 DB_DATABASE='slim4_api_skeleton'
-DB_USERNAME='oneUser'
-DB_PASSWORD='onePass'
+DB_USERNAME='yourMySqlUser'
+DB_PASSWORD='yourMySqlPass'
 ```
 
 You can create a mysql database executing for example:
@@ -86,43 +86,11 @@ $ docker-compose down
 
 ## DOCUMENTATION:
 
-### ENDPOINTS BY DEFAULT:
+### DEFAULT ENDPOINTS:
 
-#### Get Help:
+- Help: `GET /`
 
-Request:
-```bash
-$ curl -X GET localhost:8080
-```
-
-Response:
-```javascript
-{
-    "api": "slim4-api-skeleton",
-    "version": "0.0.1",
-    "timestamp": 1570930920
-}
-```
-
-
-#### Get Status:
-
-Request:
-```bash
-$ curl -X GET localhost:8080/status
-```
-
-Response:
-```javascript
-{
-    "status": {
-        "database": "OK"
-    },
-    "api": "slim4-api-skeleton",
-    "version": "0.0.1",
-    "timestamp": 1570930935
-}
-```
+- Status: `GET /status`
 
 
 ## That's it!
