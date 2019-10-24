@@ -4,6 +4,11 @@ Skeleton for RESTful API development, using [Slim PHP micro framework](http://ww
 
 Used technologies: `PHP, Slim 4, MySQL, PHPUnit, env var, Docker & Docker Compose`.
 
+[![Software License][ico-license]](LICENSE.md)
+
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+
+
 ## QUICK INSTALL:
 
 ### Pre Requisite:
@@ -50,7 +55,7 @@ If you like Docker, you can use this project with **docker** and **docker-compos
 * Compose: 1.21+
 
 
-### Docker Commands:
+### DOCKER COMMANDS:
 
 ```bash
 # Create and start containers for the API.
