@@ -2,15 +2,14 @@
 
 Skeleton for RESTful API development, using [Slim PHP micro framework](http://www.slimframework.com).
 
-Used technologies: PHP, Slim 4, MySQL, PHPUnit, env var, Docker & Docker Compose.
+Used technologies: `PHP, Slim 4, MySQL, PHPUnit, env var, Docker & Docker Compose`.
 
 ## QUICK INSTALL:
 
 ### Pre Requisite:
 
-- Git.
-- Composer.
 - PHP.
+- Composer.
 - MySQL/MariaDB.
 
 ### Run commands:
@@ -26,23 +25,17 @@ $ composer start
 ```
 
 
-#### Check and configure your MySQL database connection:
+#### Configure your connection to MySQL Server:
 
-By default, the API will need a MySQL Database.
+By default, the API use a MySQL Database.
 
 You can check and edit this configuration in your `.env` file:
 
 ```
 DB_HOSTNAME='127.0.0.1'
-DB_DATABASE='slim4_api_skeleton'
-DB_USERNAME='yourMySqlUser'
-DB_PASSWORD='yourMySqlPass'
-```
-
-You can create a mysql database executing for example:
-
-```bash
-$ mysql -e "CREATE DATABASE slim4_api_skeleton"
+DB_DATABASE='yourMySqlDatabase'
+DB_USERNAME='yourMySqlUsername'
+DB_PASSWORD='yourMySqlPassword'
 ```
 
 
