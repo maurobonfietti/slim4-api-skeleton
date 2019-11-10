@@ -1,6 +1,6 @@
 # SLIM 4 - API SKELETON
 
-Skeleton for RESTful API development, using [Slim PHP micro framework](http://www.slimframework.com).
+Useful skeleton for RESTful API development, using [Slim PHP micro framework](https://www.slimframework.com).
 
 Used technologies: `PHP, Slim 4, MySQL, PHPUnit, env var, Docker & Docker Compose`.
 
@@ -17,9 +17,10 @@ Used technologies: `PHP, Slim 4, MySQL, PHPUnit, env var, Docker & Docker Compos
 - Composer.
 - MySQL/MariaDB.
 
-### Run commands:
 
-In your terminal execute this commands:
+### With Composer:
+
+You can create a new project running the following commands:
 
 ```bash
 $ composer create-project maurobonfietti/slim4-api-skeleton [my-api-name]
