@@ -5,12 +5,12 @@ services:
     image: nginx:latest
     container_name: slim4-api-skeleton-nginx-container
     ports:
-    - "8081:80"
+      - "8081:80"
     volumes:
-    - ./:/var/www/html
-    - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - ./:/var/www/html
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
     networks:
-    - testingnetwork
+      - testingnetwork
 
   php-fpm:
     build: ./docker/php7
