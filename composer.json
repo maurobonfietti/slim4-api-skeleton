@@ -1,7 +1,16 @@
 {
     "name": "maurobonfietti/slim4-api-skeleton",
     "description": "Useful skeleton for RESTful API development, using PHP and Slim 4.",
-    "keywords": ["php", "slim-micro-framework", "rest-api", "mysql", "slim4", "slim", "rest", "api"],
+    "keywords": [
+        "php",
+        "slim-micro-framework",
+        "rest-api",
+        "mysql",
+        "slim4",
+        "slim",
+        "rest",
+        "api"
+    ],
     "homepage": "https://github.com/maurobonfietti/slim4-api-skeleton",
     "license": "MIT",
     "authors": [
@@ -11,17 +20,19 @@
             "homepage": "https://github.com/maurobonfietti"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
-        "slim/slim": "^4.2",
-        "slim/psr7": "^0.5.0",
         "pimple/pimple": "^3.2",
+        "slim/psr7": "^0.5.0",
+        "slim/slim": "^4.2",
         "vlucas/phpdotenv": "^2.4"
     },
     "require-dev": {
+        "maurobonfietti/skel-api-slim-php-crud-generator": "^0.4.3",
         "phpunit/phpunit": "^8.0",
-        "symfony/console": "^3.3",
-        "maurobonfietti/skel-api-slim-php-crud-generator": "^0.4.3"
+        "symfony/console": "^3.3"
+    },
+    "config": {
+        "sort-packages": true
     },
     "autoload": {
         "psr-4": {
@@ -29,13 +40,14 @@
             "Tests\\": "tests/"
         }
     },
+    "minimum-stability": "dev",
     "scripts": {
+        "coverage": "phpunit --coverage-text --coverage-html coverage",
+        "crud": "php console api:generate:endpoints",
+        "crud2": "./vendor/maurobonfietti/skel-api-slim-php-crud-generator/bin/console api:generate:endpoints",
+        "down": "docker-compose down",
         "start": "php -S 0.0.0.0:8080 -t public public/index.php",
         "test": "phpunit",
-        "coverage": "phpunit --coverage-text --coverage-html coverage",
-        "up": "docker-compose up -d --build",
-        "down": "docker-compose down",
-        "crud": "php console api:generate:endpoints",
-        "crud2": "./vendor/maurobonfietti/skel-api-slim-php-crud-generator/bin/console api:generate:endpoints"
+        "up": "docker-compose up -d --build"
     }
 }
