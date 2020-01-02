@@ -21,7 +21,10 @@ $app->addRoutingMiddleware();
 $app->addBodyParsingMiddleware();
 
 $customErrorHandler = function (ServerRequestInterface $request, Throwable $exception, bool $displayErrorDetails, bool $logErrors, bool $logErrorDetails) use ($app) {
-    $statusCode = is_int($exception->getCode()) ? $exception->getCode() : 500;
+    $statusCode = 500;
+    if (is_int($exception->getCode()) && $exception->getCode() !== 0 && $exception->getCode() < 599) {
+        $statusCode = $exception->getCode();
+    }
     $className = new \ReflectionClass(get_class($exception));
     $data = [
         'message' => $exception->getMessage(),
@@ -35,7 +38,8 @@ $customErrorHandler = function (ServerRequestInterface $request, Throwable $exce
     return $response->withStatus($statusCode)->withHeader("Content-type", "application/json");
 };
 
-$errorMiddleware = $app->addErrorMiddleware(true, true, true);
+$displayError = filter_var(getenv('DISPLAY_ERROR_DETAILS'), FILTER_VALIDATE_BOOLEAN);
+$errorMiddleware = $app->addErrorMiddleware($displayError, true, true);
 $errorMiddleware->setDefaultErrorHandler($customErrorHandler);
 
 $app->options('/{routes:.+}', function ($request, $response, $args) {
