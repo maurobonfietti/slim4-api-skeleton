@@ -2,7 +2,7 @@
 
 namespace Tests\integration;
 
-class BaseTest extends TestCase
+class BaseControllerTest extends TestCase
 {
     public function testApiHelp()
     {
