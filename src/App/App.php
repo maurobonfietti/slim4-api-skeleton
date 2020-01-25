@@ -59,5 +59,5 @@ require __DIR__ . '/Repositories.php';
 require __DIR__ . '/Routes.php';
 
 $app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function ($request, $response) {
-    throw new HttpNotFoundException($request);
+    throw new Slim\Exception\HttpNotFoundException($request);
 });
