@@ -7,11 +7,11 @@ use Slim\Factory\AppFactory;
 
 require __DIR__ . '/../../vendor/autoload.php';
 $baseDir = __DIR__ . '/../../';
-$envFile = $baseDir . '.env';
-if (file_exists($envFile)) {
-    $dotenv = new Dotenv\Dotenv($baseDir);
+$dotenv = new Dotenv\Dotenv($baseDir);
+if (file_exists($baseDir . '.env')) {
     $dotenv->load();
 }
+$dotenv->required(['DB_HOSTNAME', 'DB_DATABASE', 'DB_USERNAME', 'DB_USERNAME']);
 $settings = require __DIR__ . '/Settings.php';
 $container = new Container($settings);
 
