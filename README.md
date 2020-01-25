@@ -38,10 +38,10 @@ By default, the API use a MySQL Database.
 You can check and edit this configuration in your `.env` file:
 
 ```
-DB_HOSTNAME='127.0.0.1'
-DB_DATABASE='yourMySqlDatabase'
-DB_USERNAME='yourMySqlUsername'
-DB_PASSWORD='yourMySqlPassword'
+DB_HOST='127.0.0.1'
+DB_NAME='yourMySqlDatabase'
+DB_USER='yourMySqlUsername'
+DB_PASS='yourMySqlPassword'
 ```
 
 

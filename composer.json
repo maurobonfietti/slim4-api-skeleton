@@ -23,7 +23,7 @@
     "require": {
         "pimple/pimple": "^3.2",
         "slim/psr7": "^0.5.0",
-        "slim/slim": "^4.2",
+        "slim/slim": "^4.4",
         "vlucas/phpdotenv": "^2.4"
     },
     "require-dev": {
@@ -44,7 +44,6 @@
     "scripts": {
         "coverage": "phpunit --coverage-text --coverage-html coverage",
         "crud": "php console api:generate:endpoints",
-        "crud2": "./vendor/maurobonfietti/skel-api-slim-php-crud-generator/bin/console api:generate:endpoints",
         "down": "docker-compose down",
         "start": "php -S 0.0.0.0:8080 -t public public/index.php",
         "test": "phpunit",

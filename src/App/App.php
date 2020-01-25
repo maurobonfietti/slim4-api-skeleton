@@ -6,12 +6,14 @@ use Psr\Http\Message\ServerRequestInterface;
 use Slim\Factory\AppFactory;
 
 require __DIR__ . '/../../vendor/autoload.php';
+
 $baseDir = __DIR__ . '/../../';
-$envFile = $baseDir . '.env';
-if (file_exists($envFile)) {
-    $dotenv = new Dotenv\Dotenv($baseDir);
+$dotenv = new Dotenv\Dotenv($baseDir);
+if (file_exists($baseDir . '.env')) {
     $dotenv->load();
 }
+$dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS']);
+
 $settings = require __DIR__ . '/Settings.php';
 $container = new Container($settings);
 
@@ -59,5 +61,5 @@ require __DIR__ . '/Repositories.php';
 require __DIR__ . '/Routes.php';
 
 $app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function ($request, $response) {
-    throw new HttpNotFoundException($request);
+    throw new Slim\Exception\HttpNotFoundException($request);
 });
