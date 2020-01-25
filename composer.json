@@ -23,7 +23,7 @@
     "require": {
         "pimple/pimple": "^3.2",
         "slim/psr7": "^0.5.0",
-        "slim/slim": "^4.2",
+        "slim/slim": "^4.4",
         "vlucas/phpdotenv": "^2.4"
     },
     "require-dev": {
