@@ -6,12 +6,14 @@ use Psr\Http\Message\ServerRequestInterface;
 use Slim\Factory\AppFactory;
 
 require __DIR__ . '/../../vendor/autoload.php';
+
 $baseDir = __DIR__ . '/../../';
 $dotenv = new Dotenv\Dotenv($baseDir);
 if (file_exists($baseDir . '.env')) {
     $dotenv->load();
 }
-$dotenv->required(['DB_HOSTNAME', 'DB_DATABASE', 'DB_USERNAME', 'DB_USERNAME']);
+$dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS']);
+
 $settings = require __DIR__ . '/Settings.php';
 $container = new Container($settings);
 
