@@ -31,7 +31,7 @@ class TestCase extends PHPUnit_TestCase
         $app->addBodyParsingMiddleware();
         $customErrorHandler = function ($request, $exception, bool $displayErrorDetails, bool $logErrors, bool $logErrorDetails) use ($app) {
             $statusCode = 500;
-            if (is_int($exception->getCode()) && $exception->getCode() !== 0 && $exception->getCode() < 599) {
+            if (is_int($exception->getCode()) && $exception->getCode() >= 400 && $exception->getCode() <= 599) {
                 $statusCode = $exception->getCode();
             }
             $className = new \ReflectionClass(get_class($exception));
