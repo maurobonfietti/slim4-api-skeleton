@@ -20,7 +20,8 @@ $settings = require __DIR__ . '/Settings.php';
 $container = new Container($settings);
 
 $app = AppFactory::create(null, new Psr11Container($container));
-
+$path = getenv('SLIM_BASE_PATH') ?: '';
+$app->setBasePath($path);
 $app->addRoutingMiddleware();
 $app->addBodyParsingMiddleware();
 
