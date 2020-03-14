@@ -8,7 +8,7 @@ class BaseController
 {
     const API_NAME = 'slim4-api-skeleton';
 
-    const API_VERSION = '0.0.6';
+    const API_VERSION = '0.0.7';
 
     protected $container;
 
