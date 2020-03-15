@@ -27,7 +27,7 @@
         "vlucas/phpdotenv": "^2.4"
     },
     "require-dev": {
-        "maurobonfietti/skel-api-slim-php-crud-generator": "^0.7",
+        "maurobonfietti/skel-api-slim-php-crud-generator": "dev-master",
         "phpunit/phpunit": "^8.0",
         "symfony/console": "^3.3"
     },
@@ -47,6 +47,9 @@
         "down": "docker-compose down",
         "start": "php -S 0.0.0.0:8080 -t public public/index.php",
         "test": "phpunit",
-        "up": "docker-compose up -d --build"
+        "up": "docker-compose up -d --build",
+        "post-create-project-cmd": [
+            "php -r \"copy('.env.example', '.env');\""
+        ]
     }
 }

@@ -25,7 +25,6 @@ You can create a new project running the following commands:
 ```bash
 $ composer create-project maurobonfietti/slim4-api-skeleton [my-api-name]
 $ cd [my-api-name]
-$ cp .env.example .env
 $ composer test
 $ composer start
 ```
