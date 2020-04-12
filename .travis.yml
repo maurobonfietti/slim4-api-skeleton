@@ -1,8 +1,13 @@
 language: php
 
-dist: trusty
+php:
+  - '7.4'
 
-matrix:
-  include:
-  - php: 7.1
-  - php: 7.2
+services:
+  - mysql
+
+before_script:
+- composer install -n
+
+script:
+- vendor/bin/phpunit
