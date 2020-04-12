@@ -7,6 +7,7 @@ Used technologies: `PHP, Slim 4, MySQL, PHPUnit, env var, Docker & Docker Compos
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status](https://travis-ci.com/maurobonfietti/slim4-api-skeleton.svg?branch=master)](https://travis-ci.com/maurobonfietti/slim4-api-skeleton)
 [![Coverage Status](https://coveralls.io/repos/github/maurobonfietti/slim4-api-skeleton/badge.svg?branch=master)](https://coveralls.io/github/maurobonfietti/slim4-api-skeleton?branch=master)
+[![Packagist Version](https://img.shields.io/packagist/v/maurobonfietti/slim4-api-skeleton)](https://packagist.org/packages/maurobonfietti/slim4-api-skeleton)
 
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat
 
@@ -46,12 +47,12 @@ DB_PASS='yourMySqlPassword'
 ```
 
 
-## DOCKER READY:
+### With Docker:
 
 If you like Docker, you can use this project with **docker** and **docker-compose**.
 
 
-### MINIMAL DOCKER VERSION:
+#### MINIMAL DOCKER VERSION:
 
 * Engine: 18.03+
 * Compose: 1.21+
@@ -87,9 +88,9 @@ $ docker-compose down
 - [maurobonfietti/slim4-api-skeleton-crud-generator](https://github.com/maurobonfietti/slim4-api-skeleton-crud-generator): CRUD Generator for Slim 4 - Api Skeleton.
 
 
-## DOCUMENTATION:
+## ENDPOINTS:
 
-### DEFAULT ENDPOINTS:
+### BY DEFAULT:
 
 - Help: `GET /`
 
