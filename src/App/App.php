@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use Pimple\Container;
 use Pimple\Psr11\Container as Psr11Container;
-use Psr\Http\Message\ServerRequestInterface;
 use Slim\Factory\AppFactory;
 
 class App
@@ -29,24 +28,7 @@ class App
         $app->addRoutingMiddleware();
         $app->addBodyParsingMiddleware();
 
-        $customErrorHandler = function (ServerRequestInterface $request, Throwable $exception, bool $displayErrorDetails, bool $logErrors, bool $logErrorDetails) use ($app) {
-            $statusCode = 500;
-            if (is_int($exception->getCode()) && $exception->getCode() >= 400 && $exception->getCode() <= 599) {
-                $statusCode = $exception->getCode();
-            }
-            $className = new \ReflectionClass(get_class($exception));
-            $data = [
-                'message' => $exception->getMessage(),
-                'class' => $className->getShortName(),
-                'status' => 'error',
-                'code' => $statusCode,
-            ];
-            $response = $app->getResponseFactory()->createResponse();
-            $response->getBody()->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
-
-            return $response->withStatus($statusCode)->withHeader("Content-type", "application/json");
-        };
-
+        require __DIR__ . '/ErrorHandler.php';
         $displayError = filter_var(getenv('DISPLAY_ERROR_DETAILS'), FILTER_VALIDATE_BOOLEAN);
         $errorMiddleware = $app->addErrorMiddleware($displayError, true, true);
         $errorMiddleware->setDefaultErrorHandler($customErrorHandler);
