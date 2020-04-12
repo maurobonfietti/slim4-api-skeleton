@@ -17,7 +17,9 @@ before_install:
   - mysql -e 'CREATE DATABASE slim4_api_skeleton'
 
 before_script:
-- composer install -n
+  - composer require php-coveralls/php-coveralls:^2.2.0
+  - composer install -n
 
 script:
-- vendor/bin/phpunit
+  - vendor/bin/phpunit --coverage-clover clover.xml
+  - vendor/bin/php-coveralls --coverage_clover=clover.xml -v
