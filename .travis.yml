@@ -6,6 +6,16 @@ php:
 services:
   - mysql
 
+env:
+  global:
+    - DB_HOSTNAME=127.0.0.1
+    - DB_DATABASE=slim4_api_skeleton
+    - DB_USERNAME=root
+    - DB_PASSWORD=
+
+before_install:
+  - mysql -e 'CREATE DATABASE slim4_api_skeleton'
+
 before_script:
 - composer install -n
 
