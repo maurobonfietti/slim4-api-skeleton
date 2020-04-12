@@ -28,7 +28,7 @@ class App
         $app->addRoutingMiddleware();
         $app->addBodyParsingMiddleware();
 
-        $customErrorHandler = require __DIR__ . '/ErrorHandler.php';
+        require __DIR__ . '/ErrorHandler.php';
         $displayError = filter_var(getenv('DISPLAY_ERROR_DETAILS'), FILTER_VALIDATE_BOOLEAN);
         $errorMiddleware = $app->addErrorMiddleware($displayError, true, true);
         $errorMiddleware->setDefaultErrorHandler($customErrorHandler);
