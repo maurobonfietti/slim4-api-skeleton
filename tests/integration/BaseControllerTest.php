@@ -34,4 +34,16 @@ class BaseControllerTest extends TestCase
         $this->assertStringNotContainsString('failed', (string) $response->getBody());
         $this->assertStringNotContainsString('PDOException', (string) $response->getBody());
     }
+
+    public function testNotFoundException()
+    {
+        $app = $this->getAppInstance();
+        $request = $this->createRequest('GET', '/notfound');
+        $response = $app->handle($request);
+
+        $this->assertEquals(404, $response->getStatusCode());
+        $this->assertStringContainsString('error', (string) $response->getBody());
+        $this->assertStringContainsString('Not found.', (string) $response->getBody());
+        $this->assertStringContainsString('HttpNotFoundException', (string) $response->getBody());
+    }
 }
