@@ -37,7 +37,7 @@ $ composer start
 
 By default, the API use a MySQL Database.
 
-You can check and edit this configuration in your `.env` file:
+You should check and edit this configuration in your `.env` file:
 
 ```
 DB_HOST='127.0.0.1'
@@ -97,11 +97,9 @@ $ docker-compose down
 - Status: `GET /status`
 
 
-## BUY ME A COFFEE :-)
+## WOULD YOU LIKE TO SUPPORT THIS PROJECT?
 
-<a href='https://ko-fi.com/maurobonfietti' target='_blank'>
-  <img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' />
-</a>
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/maurobonfietti)
 
 
 ## That's it!
