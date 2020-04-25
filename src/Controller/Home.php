@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\Base;
+namespace App\Controller;
 
-final class BaseController
+final class Home
 {
     private const API_NAME = 'slim4-api-skeleton';
 
