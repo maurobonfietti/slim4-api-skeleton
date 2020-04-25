@@ -56,7 +56,7 @@ final class Home
         echo self::messagePostCreateProjectCommand(self::API_VERSION);
     }
 
-    public static function messagePostCreateProjectCommand($version): string
+    public static function messagePostCreateProjectCommand(string $version): string
     {
         return <<<EOF
    _____ _ _             _  _              
