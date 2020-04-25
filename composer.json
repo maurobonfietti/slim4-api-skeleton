@@ -28,6 +28,7 @@
     },
     "require-dev": {
         "maurobonfietti/skel-api-slim-php-crud-generator": "dev-master",
+        "nunomaduro/phpinsights": "dev-master",
         "phpunit/phpunit": "^9.0",
         "symfony/console": "^4.2"
     },
