@@ -50,7 +50,8 @@
         "test": "phpunit",
         "up": "docker-compose up -d --build",
         "post-create-project-cmd": [
-            "php -r \"copy('.env.example', '.env');\""
+            "php -r \"copy('.env.example', '.env');\"",
+            "\\App\\Controller\\Home::postCreateProjectCommand"
         ]
     }
 }
