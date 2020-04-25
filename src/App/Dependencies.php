@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Pimple\Container;
 
-$container['db'] = function (Container $c): PDO {
+$container['db'] = static function (Container $c): PDO {
     $db = $c['settings']['db'];
     $database = sprintf('mysql:host=%s;dbname=%s', $db['hostname'], $db['database']);
     $pdo = new PDO($database, $db['username'], $db['password']);
