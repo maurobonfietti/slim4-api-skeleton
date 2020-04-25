@@ -52,7 +52,7 @@ DB_PASS='yourMySqlPassword'
 If you like Docker, you can use this project with **docker** and **docker-compose**.
 
 
-#### MINIMAL DOCKER VERSION:
+**MINIMAL DOCKER VERSION:**
 
 * Engine: 18.03+
 * Compose: 1.21+
