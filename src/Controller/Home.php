@@ -2,22 +2,26 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\Base;
+namespace App\Controller;
 
-final class BaseController
+use Pimple\Psr11\Container;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+
+final class Home
 {
     private const API_NAME = 'slim4-api-skeleton';
 
-    private const API_VERSION = '0.4.0';
+    private const API_VERSION = '0.5.0';
 
-    private $container;
+    private Container $container;
 
-    public function __construct($container)
+    public function __construct(Container $container)
     {
         $this->container = $container;
     }
 
-    public function getHelp($request, $response)
+    public function getHelp(Request $request, Response $response): Response
     {
         $message = [
             'api' => self::API_NAME,
@@ -30,7 +34,7 @@ final class BaseController
         return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
     }
 
-    public function getStatus($request, $response)
+    public function getStatus(Request $request, Response $response): Response
     {
         $this->container->get('db');
         $status = [

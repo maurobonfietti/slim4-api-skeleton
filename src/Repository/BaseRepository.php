@@ -6,7 +6,7 @@ namespace App\Repository;
 
 abstract class BaseRepository
 {
-    protected $database;
+    protected \PDO $database;
 
     protected function getDb(): \PDO
     {
