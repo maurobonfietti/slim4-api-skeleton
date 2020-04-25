@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Controller\Base;
 
-class BaseController
+final class BaseController
 {
-    const API_NAME = 'slim4-api-skeleton';
+    private const API_NAME = 'slim4-api-skeleton';
 
-    const API_VERSION = '0.4.0';
+    private const API_VERSION = '0.4.0';
 
-    protected $container;
+    private $container;
 
     public function __construct($container)
     {

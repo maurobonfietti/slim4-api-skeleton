@@ -6,7 +6,7 @@ use Pimple\Container;
 use Pimple\Psr11\Container as Psr11Container;
 use Slim\Factory\AppFactory;
 
-class App
+final class App
 {
     public function getAppInstance()
     {
@@ -39,9 +39,9 @@ class App
         $app->add(function ($request, $handler) {
             $response = $handler->handle($request);
             return $response
-                    ->withHeader('Access-Control-Allow-Origin', '*')
-                    ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
-                    ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+                ->withHeader('Access-Control-Allow-Origin', '*')
+                ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+                ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
         });
 
         require __DIR__ . '/Dependencies.php';
@@ -49,7 +49,7 @@ class App
         require __DIR__ . '/Repositories.php';
         require __DIR__ . '/Routes.php';
 
-        $app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function ($request, $response) {
+        $app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function ($request, $response): void {
             throw new Slim\Exception\HttpNotFoundException($request);
         });
 
