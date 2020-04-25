@@ -53,8 +53,12 @@ final class Home
 
     public static function postCreateProjectCommand(): void
     {
-        $version = self::API_VERSION;
-        $str = <<<EOF
+        echo self::messagePostCreateProjectCommand(self::API_VERSION);
+    }
+
+    public static function messagePostCreateProjectCommand($version): string
+    {
+        return <<<EOF
    _____ _ _             _  _              
   / ____| (_)           | || |             
  | (___ | |_ _ __ ___   | || |_            
@@ -87,6 +91,5 @@ Thanks for installing this project!
 Now go build a cool RESTful API ;-)
 
 EOF;
-        echo $str;
     }
 }
