@@ -19,5 +19,5 @@ $customErrorHandler = function (ServerRequestInterface $request, Throwable $exce
     $response = $app->getResponseFactory()->createResponse();
     $response->getBody()->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
 
-    return $response->withStatus($statusCode)->withHeader("Content-type", "application/json");
+    return $response->withStatus($statusCode)->withHeader('Content-type', 'application/json');
 };
