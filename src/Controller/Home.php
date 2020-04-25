@@ -12,7 +12,7 @@ final class Home
 {
     private const API_NAME = 'slim4-api-skeleton';
 
-    private const API_VERSION = '0.5.0';
+    private const API_VERSION = '0.6.0';
 
     private Container $container;
 
@@ -49,5 +49,44 @@ final class Home
         $response->getBody()->write($payload);
 
         return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+    }
+
+    public static function postCreateProjectCommand(): void
+    {
+        $version = self::API_VERSION;
+        $str = <<<EOF
+   _____ _ _             _  _              
+  / ____| (_)           | || |             
+ | (___ | |_ _ __ ___   | || |_            
+  \___ \| | | '_ ` _ \  |__   _|           
+  ____) | | | | | | | |    | |             
+ |_____/|_|_|_| |_| |_|    |_| _____ _____ 
+  / ____| |      | |     /\   |  __ \_   _|
+ | (___ | | _____| |    /  \  | |__) || |  
+  \___ \| |/ / _ \ |   / /\ \ |  ___/ | |  
+  ____) |   <  __/ |  / ____ \| |    _| |_ 
+ |_____/|_|\_\___|_| /_/    \_\_|   |_____|
+
+*************************************************************
+Project: https://github.com/maurobonfietti/slim4-api-skeleton
+Version: ${version}
+*************************************************************
+
+Successfully created project!
+
+Get started with the following commands:
+
+$ cd [my-api-name]
+$ composer test
+$ composer start
+
+(P.S. set your MySQL connection in .env file)
+
+Thanks for installing this project!
+
+Now go build a cool RESTful API ;-)
+
+EOF;
+        echo $str;
     }
 }
