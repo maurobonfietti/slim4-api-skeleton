@@ -43,15 +43,15 @@
     },
     "minimum-stability": "dev",
     "scripts": {
+        "post-create-project-cmd": [
+            "php -r \"copy('.env.example', '.env');\"",
+            "php post-create-project-command.php"
+        ],
         "coverage": "phpunit --coverage-text --coverage-html coverage",
         "crud": "php console api:generate:endpoints",
         "down": "docker-compose down",
         "start": "php -S 0.0.0.0:8080 -t public public/index.php",
         "test": "phpunit",
-        "up": "docker-compose up -d --build",
-        "post-create-project-cmd": [
-            "php -r \"copy('.env.example', '.env');\"",
-            "\\App\\Controller\\Home::postCreateProjectCommand"
-        ]
+        "up": "docker-compose up -d --build"
     }
 }

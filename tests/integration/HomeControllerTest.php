@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\integration;
 
-class BaseControllerTest extends TestCase
+class HomeControllerTest extends TestCase
 {
     public function testApiHelp()
     {
@@ -45,12 +45,5 @@ class BaseControllerTest extends TestCase
         $this->assertStringContainsString('error', (string) $response->getBody());
         $this->assertStringContainsString('Not found.', (string) $response->getBody());
         $this->assertStringContainsString('HttpNotFoundException', (string) $response->getBody());
-    }
-
-    public function testMessagePostCreateProjectCommand()
-    {
-        $message = \App\Controller\Home::messagePostCreateProjectCommand('');
-        $this->assertStringContainsString('Project', $message);
-        $this->assertStringContainsString('Version', $message);
     }
 }
