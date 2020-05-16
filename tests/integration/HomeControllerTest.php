@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\integration;
 
-class BaseControllerTest extends TestCase
+class HomeControllerTest extends TestCase
 {
     public function testApiHelp()
     {
