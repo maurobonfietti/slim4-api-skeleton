@@ -33,7 +33,8 @@
         "symfony/console": "^4.4"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "process-timeout": 0
     },
     "autoload": {
         "psr-4": {
