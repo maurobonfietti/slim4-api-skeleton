@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Lib\JsonResponse;
 use Pimple\Psr11\Container;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -12,7 +13,7 @@ final class Home
 {
     private const API_NAME = 'slim4-api-skeleton';
 
-    private const API_VERSION = '0.8.0';
+    private const API_VERSION = '0.9.0';
 
     private Container $container;
 
@@ -28,10 +29,8 @@ final class Home
             'version' => self::API_VERSION,
             'timestamp' => time(),
         ];
-        $payload = json_encode($message);
-        $response->getBody()->write($payload);
 
-        return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+        return JsonResponse::withJson($response, json_encode($message), 200);
     }
 
     public function getStatus(Request $request, Response $response): Response
@@ -45,9 +44,7 @@ final class Home
             'version' => self::API_VERSION,
             'timestamp' => time(),
         ];
-        $payload = json_encode($status);
-        $response->getBody()->write($payload);
 
-        return $response->withHeader('Content-Type', 'application/json')->withStatus(200);
+        return JsonResponse::withJson($response, json_encode($status), 200);
     }
 }
