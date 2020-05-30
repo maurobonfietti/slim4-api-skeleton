@@ -55,3 +55,8 @@ EOF;
 
 PostCreateProjectCommand::showIntro();
 PostCreateProjectCommand::showMessage();
+
+unlink('.coveralls.yml');
+unlink('.travis.yml');
+unlink('post-create-project-command.php');
+
