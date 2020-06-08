@@ -52,13 +52,13 @@ DB_PASS='yourMySqlPassword'
 If you like Docker, you can use this project with **docker** and **docker-compose**.
 
 
-**MINIMAL DOCKER VERSION:**
+**Minimal Docker Version:**
 
 * Engine: 18.03+
 * Compose: 1.21+
 
 
-### DOCKER COMMANDS:
+**Docker Commands:**
 
 ```bash
 # Create and start containers for the API.
