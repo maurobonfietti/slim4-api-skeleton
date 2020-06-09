@@ -25,8 +25,10 @@ $customErrorHandler = function (
         'status' => 'error',
         'code' => $statusCode,
     ];
+    $body = json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+    $type = 'application/problem+json';
     $response = $app->getResponseFactory()->createResponse();
-    $response->getBody()->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
+    $response->getBody()->write($body);
 
-    return $response->withStatus($statusCode)->withHeader('Content-type', 'application/json');
+    return $response->withStatus($statusCode)->withHeader('Content-type', $type);
 };

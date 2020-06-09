@@ -19,9 +19,7 @@ final class App
         }
         $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS']);
 
-        $settings = require __DIR__ . '/Settings.php';
-        $container = new Container($settings);
-
+        $container = new Container();
         $app = AppFactory::create(null, new Psr11Container($container));
         $path = getenv('SLIM_BASE_PATH') ?: '';
         $app->setBasePath($path);
