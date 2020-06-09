@@ -2,7 +2,7 @@
 
 Useful skeleton for RESTful API development, using [Slim PHP micro framework](https://www.slimframework.com).
 
-Used technologies: `PHP, Slim 4, MySQL, PHPUnit, env var, Docker & Docker Compose`.
+Used technologies: `PHP 7, Slim 4, MySQL, PHPUnit, env var, Docker & Docker Compose`.
 
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status](https://travis-ci.com/maurobonfietti/slim4-api-skeleton.svg?branch=master)](https://travis-ci.com/maurobonfietti/slim4-api-skeleton)
@@ -12,7 +12,7 @@ Used technologies: `PHP, Slim 4, MySQL, PHPUnit, env var, Docker & Docker Compos
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat
 
 
-## QUICK INSTALL:
+## :gear: QUICK INSTALL:
 
 ### Pre Requisite:
 
@@ -72,7 +72,7 @@ $ docker-compose down
 ```
 
 
-## DEPENDENCIES:
+## :inbox_tray: DEPENDENCIES:
 
 ### LIST OF REQUIRE DEPENDENCIES:
 
@@ -89,7 +89,7 @@ $ docker-compose down
 - [maurobonfietti/slim4-api-skeleton-crud-generator](https://github.com/maurobonfietti/slim4-api-skeleton-crud-generator): CRUD Generator for Slim 4 - Api Skeleton.
 
 
-## ENDPOINTS:
+## :bookmark: ENDPOINTS:
 
 ### BY DEFAULT:
 
@@ -98,11 +98,13 @@ $ docker-compose down
 - Status: `GET /status`
 
 
-## WOULD YOU LIKE TO SUPPORT THIS PROJECT?
+## :heart: WOULD YOU LIKE TO SUPPORT THIS PROJECT?
+
+You can support this project inviting me a coffee :coffee: :yum: or giving a **star** to this repo :star: :blush:.
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/maurobonfietti)
 
 
-## That's it!
+## :sunglasses: THAT'S IT!
 
 Now go build a cool RESTful API ;-)
