@@ -14,11 +14,12 @@ Used technologies: `PHP 7, Slim 4, MySQL, PHPUnit, dotenv, Docker & Docker Compo
 
 ## :gear: QUICK INSTALL:
 
-### Pre Requisite:
+### Requirements:
 
 - PHP.
 - Composer.
 - MySQL/MariaDB.
+- or Docker.
 
 
 ### With Composer:
@@ -93,9 +94,9 @@ $ docker-compose down
 
 ### BY DEFAULT:
 
-- Help: `GET /`
+- Hello: `GET /`
 
-- Status: `GET /status`
+- Health Check: `GET /status`
 
 
 ## :heart: WOULD YOU LIKE TO SUPPORT THIS PROJECT?
@@ -107,4 +108,4 @@ You can support this project inviting me a coffee :coffee: :yum: or giving a **s
 
 ## :sunglasses: THAT'S IT!
 
-Now go build a cool RESTful API ;-)
+Now go build a cool RESTful API.
