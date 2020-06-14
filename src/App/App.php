@@ -8,7 +8,7 @@ use Slim\Factory\AppFactory;
 
 final class App
 {
-    public function getAppInstance()
+    public function getAppInstance(): AppFactory
     {
         require __DIR__ . '/../../vendor/autoload.php';
 
