@@ -27,7 +27,7 @@ final class PostCreateProjectCommand
 EOF;
     }
 
-    public static function showMessage(): void
+    public static function showSuccessMessage(): void
     {
         echo <<<EOF
 
@@ -36,6 +36,13 @@ Project: https://github.com/maurobonfietti/slim4-api-skeleton
 *************************************************************
 
 Successfully created project!
+
+EOF;
+    }
+
+    public static function showFinalMessage(): void
+    {
+        echo <<<EOF
 
 Get started with the following commands:
 
@@ -54,7 +61,8 @@ EOF;
 }
 
 PostCreateProjectCommand::showIntro();
-PostCreateProjectCommand::showMessage();
+PostCreateProjectCommand::showSuccessMessage();
+PostCreateProjectCommand::showFinalMessage();
 
 unlink('.coveralls.yml');
 unlink('.travis.yml');
