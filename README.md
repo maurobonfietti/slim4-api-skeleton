@@ -16,8 +16,8 @@ Used technologies: `PHP 7, Slim 4, MySQL, PHPUnit, dotenv, Docker & Docker Compo
 
 ### Requirements:
 
-- PHP.
 - Composer.
+- PHP 7.3 / 7.4.
 - MySQL/MariaDB.
 - or Docker.
 
@@ -73,7 +73,7 @@ $ docker-compose down
 ```
 
 
-## :inbox_tray: DEPENDENCIES:
+## :package: DEPENDENCIES:
 
 ### LIST OF REQUIRE DEPENDENCIES:
 
