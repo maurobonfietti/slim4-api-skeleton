@@ -9,8 +9,6 @@ services:
     volumes:
       - ./:/var/www/html
       - ./docker/nginx/conf.d:/etc/nginx/conf.d
-    networks:
-      - testingnetwork
 
   php-fpm:
     build: ./docker/php7
@@ -29,8 +27,6 @@ services:
 
     volumes:
      - ./:/var/www/html
-    networks:
-      - testingnetwork
 
   mysql:
     image: mysql:5.7
@@ -42,15 +38,8 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: 
       MYSQL_ROOT_PASSWORD: 
-    networks:
-      - testingnetwork
     volumes:
       - my-data:/var/lib/mysql
-
-networks:
-  testingnetwork:
-    external:
-      name: testingnetwork
 
 volumes:
   my-data:
