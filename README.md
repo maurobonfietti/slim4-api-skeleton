@@ -101,9 +101,7 @@ $ docker-compose down
 
 ## :video_camera: TUTORIAL:
 
-Develop a RESTful API with PHP and Slim 4 (:sound: :es: :argentina:).
-
-[View Video.](https://youtu.be/DetK1w65S-k)
+Video: :movie_camera: :sound: :es: :argentina: [Develop a RESTful API with PHP and Slim 4.](https://youtu.be/DetK1w65S-k).
 
 
 ## :heart: WOULD YOU LIKE TO SUPPORT THIS PROJECT?
