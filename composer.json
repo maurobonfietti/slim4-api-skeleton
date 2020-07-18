@@ -53,7 +53,7 @@
         "coverage": "phpunit --coverage-text --coverage-html coverage",
         "crud": "php console api:generate:endpoints",
         "down": "docker-compose down",
-        "start": "php -S 0.0.0.0:8080 -t public public/index.php",
+        "start": "php -S localhost:8080 -t public public/index.php",
         "test": "phpunit",
         "up": "docker-compose up -d --build"
     }
