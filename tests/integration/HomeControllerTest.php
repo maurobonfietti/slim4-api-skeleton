@@ -25,14 +25,16 @@ class HomeControllerTest extends TestCase
         $request = $this->createRequest('GET', '/status');
         $response = $app->handle($request);
 
+        $result = (string) $response->getBody();
+
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertStringContainsString('api', (string) $response->getBody());
-        $this->assertStringContainsString('version', (string) $response->getBody());
-        $this->assertStringContainsString('time', (string) $response->getBody());
-        $this->assertStringContainsString('database', (string) $response->getBody());
-        $this->assertStringNotContainsString('error', (string) $response->getBody());
-        $this->assertStringNotContainsString('failed', (string) $response->getBody());
-        $this->assertStringNotContainsString('PDOException', (string) $response->getBody());
+        $this->assertStringContainsString('api', $result);
+        $this->assertStringContainsString('version', $result);
+        $this->assertStringContainsString('time', $result);
+        $this->assertStringContainsString('database', $result);
+        $this->assertStringNotContainsString('error', $result);
+        $this->assertStringNotContainsString('failed', $result);
+        $this->assertStringNotContainsString('PDOException', $result);
     }
 
     public function testNotFoundException()
@@ -41,9 +43,11 @@ class HomeControllerTest extends TestCase
         $request = $this->createRequest('GET', '/notfound');
         $response = $app->handle($request);
 
+        $result = (string) $response->getBody();
+
         $this->assertEquals(404, $response->getStatusCode());
-        $this->assertStringContainsString('error', (string) $response->getBody());
-        $this->assertStringContainsString('Not found.', (string) $response->getBody());
-        $this->assertStringContainsString('HttpNotFoundException', (string) $response->getBody());
+        $this->assertStringContainsString('error', $result);
+        $this->assertStringContainsString('Not found.', $result);
+        $this->assertStringContainsString('HttpNotFoundException', $result);
     }
 }
