@@ -25,7 +25,7 @@
         "pimple/pimple": "^3.2",
         "slim/psr7": "^0.5.0",
         "slim/slim": "^4.5",
-        "vlucas/phpdotenv": "^2.4"
+        "vlucas/phpdotenv": "^5.1"
     },
     "require-dev": {
         "maurobonfietti/skel-api-slim-php-crud-generator": "dev-master",
