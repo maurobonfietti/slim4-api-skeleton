@@ -13,7 +13,7 @@ final class App
         require __DIR__ . '/../../vendor/autoload.php';
 
         $baseDir = __DIR__ . '/../../';
-        $dotenv = new Dotenv\Dotenv($baseDir);
+        $dotenv = Dotenv\Dotenv::createUnsafeImmutable($baseDir);
         if (file_exists($baseDir . '.env')) {
             $dotenv->load();
         }
