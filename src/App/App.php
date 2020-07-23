@@ -2,54 +2,21 @@
 
 declare(strict_types=1);
 
-use Pimple\Container;
-use Pimple\Psr11\Container as Psr11Container;
-use Slim\Factory\AppFactory;
-
 final class App
 {
     public function getAppInstance()
     {
         require __DIR__ . '/../../vendor/autoload.php';
-
-        $baseDir = __DIR__ . '/../../';
-        $dotenv = Dotenv\Dotenv::createUnsafeImmutable($baseDir);
-        if (file_exists($baseDir . '.env')) {
-            $dotenv->load();
-        }
-        $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS']);
-
-        $container = new Container();
-        $app = AppFactory::create(null, new Psr11Container($container));
-        $path = getenv('SLIM_BASE_PATH') ?: '';
-        $app->setBasePath($path);
-        $app->addRoutingMiddleware();
-        $app->addBodyParsingMiddleware();
-
+        require __DIR__ . '/DotEnv.php';
+        require __DIR__ . '/Container.php';
         require __DIR__ . '/ErrorHandler.php';
-        $displayError = filter_var(getenv('DISPLAY_ERROR_DETAILS'), FILTER_VALIDATE_BOOLEAN);
-        $errorMiddleware = $app->addErrorMiddleware($displayError, true, true);
-        $errorMiddleware->setDefaultErrorHandler($customErrorHandler);
-
-        $app->options('/{routes:.+}', function ($request, $response, $args) {
-            return $response;
-        });
-        $app->add(function ($request, $handler) {
-            $response = $handler->handle($request);
-            return $response
-                ->withHeader('Access-Control-Allow-Origin', '*')
-                ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
-                ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-        });
-
-        require __DIR__ . '/Dependencies.php';
+        require __DIR__ . '/Middlewares.php';
+        require __DIR__ . '/Cors.php';
+        require __DIR__ . '/Database.php';
         require __DIR__ . '/Services.php';
         require __DIR__ . '/Repositories.php';
         require __DIR__ . '/Routes.php';
-
-        $app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function ($request, $response): void {
-            throw new Slim\Exception\HttpNotFoundException($request);
-        });
+        require __DIR__ . '/NotFound.php';
 
         return $app;
     }
