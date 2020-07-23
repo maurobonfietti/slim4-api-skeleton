@@ -15,6 +15,7 @@ final class App
         $container = new Container();
         $app = AppFactory::create(null, new Psr11Container($container));
         require __DIR__ . '/ErrorHandler.php';
+        require __DIR__ . '/Middlewares.php';
         require __DIR__ . '/Cors.php';
         require __DIR__ . '/Database.php';
         require __DIR__ . '/Services.php';
