@@ -12,11 +12,13 @@ class HomeControllerTest extends TestCase
         $request = $this->createRequest('GET', '/');
         $response = $app->handle($request);
 
+        $result = (string) $response->getBody();
+
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertStringContainsString('api', (string) $response->getBody());
-        $this->assertStringContainsString('version', (string) $response->getBody());
-        $this->assertStringContainsString('time', (string) $response->getBody());
-        $this->assertStringNotContainsString('error', (string) $response->getBody());
+        $this->assertStringContainsString('api', $result);
+        $this->assertStringContainsString('version', $result);
+        $this->assertStringContainsString('time', $result);
+        $this->assertStringNotContainsString('error', $result);
     }
 
     public function testStatus()
@@ -49,5 +51,14 @@ class HomeControllerTest extends TestCase
         $this->assertStringContainsString('error', $result);
         $this->assertStringContainsString('Not found.', $result);
         $this->assertStringContainsString('HttpNotFoundException', $result);
+    }
+
+    public function testPreflightOptions()
+    {
+        $app = $this->getAppInstance();
+        $request = $this->createRequest('OPTIONS', '/status');
+        $response = $app->handle($request);
+
+        $this->assertEquals(200, $response->getStatusCode());
     }
 }
