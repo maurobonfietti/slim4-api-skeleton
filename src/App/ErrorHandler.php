@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 use Psr\Http\Message\ServerRequestInterface;
 
+$path = getenv('SLIM_BASE_PATH') ?: '';
+$app->setBasePath($path);
+$app->addRoutingMiddleware();
+$app->addBodyParsingMiddleware();
+
 $customErrorHandler = function (
     ServerRequestInterface $request,
     Throwable $exception,
