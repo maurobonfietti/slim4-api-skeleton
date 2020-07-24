@@ -2,11 +2,7 @@
 
 declare(strict_types=1);
 
-final class PostCreateProjectCommand
-{
-    public static function showIntro(): void
-    {
-        echo <<<EOF
+echo <<<EOF
    _____ _ _             _  _           
   / ____| (_)           | || |          
  | (___ | |_ _ __ ___   | || |_         
@@ -24,25 +20,12 @@ final class PostCreateProjectCommand
   ____) |   <  __/ |  __/ || (_) | | | |
  |_____/|_|\_\___|_|\___|\__\___/|_| |_|
 
-EOF;
-    }
-
-    public static function showSuccessMessage(): void
-    {
-        echo <<<EOF
 
 *************************************************************
 Project: https://github.com/maurobonfietti/slim4-api-skeleton
 *************************************************************
 
 Successfully created project!
-
-EOF;
-    }
-
-    public static function showFinalMessage(): void
-    {
-        echo <<<EOF
 
 Get started with the following commands:
 
@@ -57,12 +40,6 @@ Thanks for installing this project!
 Now go build a cool RESTful API ;-)
 
 EOF;
-    }
-}
-
-PostCreateProjectCommand::showIntro();
-PostCreateProjectCommand::showSuccessMessage();
-PostCreateProjectCommand::showFinalMessage();
 
 unlink('.coveralls.yml');
 unlink('.travis.yml');
