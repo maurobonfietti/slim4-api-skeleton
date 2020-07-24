@@ -10,15 +10,13 @@ use Slim\Psr7\Headers;
 use Slim\Psr7\Request as SlimRequest;
 use Slim\Psr7\Uri;
 
-require __DIR__ . '/../../src/App/App.php';
-
 class TestCase extends PHPUnit_TestCase
 {
     protected function getAppInstance()
     {
-        $app = new \App();
+        require __DIR__ . '/../../src/App/App.php';
 
-        return $app->getAppInstance();
+        return $app;
     }
 
     protected function createRequest(
