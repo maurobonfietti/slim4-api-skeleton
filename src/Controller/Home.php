@@ -13,7 +13,7 @@ final class Home
 {
     private const API_NAME = 'slim4-api-skeleton';
 
-    private const API_VERSION = '0.21.0';
+    private const API_VERSION = '0.22.0';
 
     private $container;
 

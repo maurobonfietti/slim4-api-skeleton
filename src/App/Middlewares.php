@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-$path = getenv('SLIM_BASE_PATH') ? getenv('SLIM_BASE_PATH') : '';
+$path = isset($_SERVER['SLIM_BASE_PATH']) ? $_SERVER['SLIM_BASE_PATH'] : '';
 $app->setBasePath($path);
 $app->addRoutingMiddleware();
 $app->addBodyParsingMiddleware();
 $displayError = filter_var(
-    getenv('DISPLAY_ERROR_DETAILS'),
+    isset($_SERVER['DISPLAY_ERROR_DETAILS']) ? $_SERVER['DISPLAY_ERROR_DETAILS'] : false,
     FILTER_VALIDATE_BOOLEAN
 );
 $errorMiddleware = $app->addErrorMiddleware($displayError, true, true);
