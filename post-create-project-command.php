@@ -20,12 +20,11 @@ echo <<<EOF
   ____) |   <  __/ |  __/ || (_) | | | |
  |_____/|_|\_\___|_|\___|\__\___/|_| |_|
 
-
-*************************************************************
+\033[36m*************************************************************\033[37m
 Project: https://github.com/maurobonfietti/slim4-api-skeleton
-*************************************************************
+\033[36m*************************************************************\033[37m
 
-Successfully created project!
+\033[32mSuccessfully created project!\033[37m
 
 Get started with the following commands:
 
@@ -33,9 +32,9 @@ $ cd [your-api-name]
 $ composer test
 $ composer start
 
-(P.S. set your MySQL connection in '.env' file)
+\033[33mRemember that you need to set the MySQL connection in your dotenv file: '.env'.\033[37m
 
-Thanks for installing this project!
+\033[32mThanks for installing this project!\033[37m
 
 Now go build a cool RESTful API ;-)
 
