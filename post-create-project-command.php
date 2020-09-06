@@ -32,11 +32,14 @@ $ cd [your-api-name]
 $ composer test
 $ composer start
 
-\033[33mRemember that you need to set the MySQL connection in your dotenv file: '.env'.\033[37m
+\033[33mRemember:\033[37m you need to set the MySQL connection in your dotenv file: '.env'.
 
 \033[32mThanks for installing this project!\033[37m
 
+\033[32mDonate:\033[37m https://ko-fi.com/maurobonfietti
+
 Now go build a cool RESTful API ;-)
+
 
 EOF;
 
