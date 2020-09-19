@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Psr\Http\Message\ResponseInterface as Response;
+
 $path = $_SERVER['SLIM_BASE_PATH'] ?? '';
 $app->setBasePath($path);
 $app->addRoutingMiddleware();

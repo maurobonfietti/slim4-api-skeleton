@@ -2,11 +2,14 @@
 
 declare(strict_types=1);
 
-$app->options('/{routes:.+}', function ($request, $response) {
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+
+$app->options('/{routes:.+}', function (Request $request, Response $response) {
     return $response;
 });
 
-$app->add(function ($request, $handler) {
+$app->add(function (Request $request, $handler): Response {
     $response = $handler->handle($request);
 
     return $response
