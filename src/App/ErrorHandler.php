@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface as Response;
 
 $customErrorHandler = function (
     ServerRequestInterface $request,
@@ -10,7 +11,7 @@ $customErrorHandler = function (
     bool $displayErrorDetails,
     bool $logErrors,
     bool $logErrorDetails
-) use ($app) {
+) use ($app): Response {
     $statusCode = 500;
     if (is_int($exception->getCode()) &&
         $exception->getCode() >= 400 &&
