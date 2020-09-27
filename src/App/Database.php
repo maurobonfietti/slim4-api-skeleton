@@ -7,7 +7,7 @@ use Pimple\Container;
 /** @var Container $container */
 $container['db'] = static function (): PDO {
     $dsn = sprintf(
-        'mysql:host=%s;dbname=%s',
+        'mysql:host=%s;dbname=%s;charset=utf8',
         $_SERVER['DB_HOST'],
         $_SERVER['DB_NAME']
     );
