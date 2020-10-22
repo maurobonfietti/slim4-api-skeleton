@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\integration;
 
-class HomeControllerTest extends TestCase
+class HomeTest extends TestCase
 {
-    public function testApiHelp()
+    public function testGetHelp()
     {
         $request = $this->createRequest('GET', '/');
         $response = $this->getAppInstance()->handle($request);
@@ -20,7 +20,7 @@ class HomeControllerTest extends TestCase
         $this->assertStringNotContainsString('error', $result);
     }
 
-    public function testStatus()
+    public function testGetStatus()
     {
         $request = $this->createRequest('GET', '/status');
         $response = $this->getAppInstance()->handle($request);
@@ -37,7 +37,15 @@ class HomeControllerTest extends TestCase
         $this->assertStringNotContainsString('PDOException', $result);
     }
 
-    public function testNotFoundException()
+    public function testPreflightOptions()
+    {
+        $request = $this->createRequest('OPTIONS', '/status');
+        $response = $this->getAppInstance()->handle($request);
+
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
+    public function testRouteNotFoundException()
     {
         $request = $this->createRequest('GET', '/notfound');
         $response = $this->getAppInstance()->handle($request);
@@ -48,13 +56,5 @@ class HomeControllerTest extends TestCase
         $this->assertStringContainsString('error', $result);
         $this->assertStringContainsString('Not found.', $result);
         $this->assertStringContainsString('HttpNotFoundException', $result);
-    }
-
-    public function testPreflightOptions()
-    {
-        $request = $this->createRequest('OPTIONS', '/status');
-        $response = $this->getAppInstance()->handle($request);
-
-        $this->assertEquals(200, $response->getStatusCode());
     }
 }
