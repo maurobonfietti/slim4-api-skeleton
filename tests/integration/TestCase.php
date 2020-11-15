@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\integration;
 
 use PHPUnit\Framework\TestCase as PHPUnit_TestCase;
+use Slim\App;
 use Slim\Psr7\Factory\StreamFactory;
 use Slim\Psr7\Headers;
 use Slim\Psr7\Request as SlimRequest;
@@ -12,9 +13,9 @@ use Slim\Psr7\Uri;
 
 class TestCase extends PHPUnit_TestCase
 {
-    protected function getAppInstance()
+    protected function getAppInstance(): App
     {
-        require __DIR__ . '/../../src/App/App.php';
+        $app = require __DIR__ . '/../../src/App/App.php';
 
         return $app;
     }
@@ -25,7 +26,7 @@ class TestCase extends PHPUnit_TestCase
         array $headers = ['HTTP_ACCEPT' => 'application/json'],
         array $cookies = [],
         array $serverParams = []
-    ) {
+    ): SlimRequest {
         $uri = new Uri('', '', 80, $path);
         $handle = fopen('php://temp', 'w+');
         $stream = (new StreamFactory())->createStreamFromResource($handle);
