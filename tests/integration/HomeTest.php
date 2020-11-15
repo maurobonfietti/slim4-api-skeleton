@@ -6,7 +6,7 @@ namespace Tests\integration;
 
 class HomeTest extends TestCase
 {
-    public function testGetHelp()
+    public function testGetHelp(): void
     {
         $request = $this->createRequest('GET', '/');
         $response = $this->getAppInstance()->handle($request);
@@ -20,7 +20,7 @@ class HomeTest extends TestCase
         $this->assertStringNotContainsString('error', $result);
     }
 
-    public function testGetStatus()
+    public function testGetStatus(): void
     {
         $request = $this->createRequest('GET', '/status');
         $response = $this->getAppInstance()->handle($request);
@@ -37,7 +37,7 @@ class HomeTest extends TestCase
         $this->assertStringNotContainsString('PDOException', $result);
     }
 
-    public function testPreflightOptions()
+    public function testPreflightOptions(): void
     {
         $request = $this->createRequest('OPTIONS', '/status');
         $response = $this->getAppInstance()->handle($request);
@@ -45,7 +45,7 @@ class HomeTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
-    public function testRouteNotFoundException()
+    public function testRouteNotFoundException(): void
     {
         $request = $this->createRequest('GET', '/notfound');
         $response = $this->getAppInstance()->handle($request);

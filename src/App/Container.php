@@ -8,3 +8,5 @@ use Slim\Factory\AppFactory;
 
 $container = new Container();
 $app = AppFactory::create(null, new Psr11Container($container));
+
+return $app;
