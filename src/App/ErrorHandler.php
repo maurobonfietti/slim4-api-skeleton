@@ -34,3 +34,5 @@ $customErrorHandler = function (
         ->withStatus($statusCode)
         ->withHeader('Content-type', 'application/problem+json');
 };
+
+return $customErrorHandler;
