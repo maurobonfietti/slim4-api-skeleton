@@ -13,6 +13,7 @@ env:
     - DB_NAME=slim4_api_skeleton
     - DB_USER=root
     - DB_PASS=
+    - DB_PORT=3306
 
 before_install:
   - mysql -e 'CREATE DATABASE slim4_api_skeleton'
