@@ -9,12 +9,12 @@ services:
 
 env:
   global:
-    - XDEBUG_MODE=coverage
     - DB_HOST=127.0.0.1
     - DB_NAME=slim4_api_skeleton
     - DB_USER=root
     - DB_PASS=
     - DB_PORT=3306
+    - XDEBUG_MODE=coverage
 
 before_install:
   - mysql -e 'CREATE DATABASE slim4_api_skeleton'
