@@ -9,6 +9,7 @@ services:
 
 env:
   global:
+    - XDEBUG_MODE=coverage
     - DB_HOST=127.0.0.1
     - DB_NAME=slim4_api_skeleton
     - DB_USER=root
