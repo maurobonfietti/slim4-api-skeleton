@@ -25,5 +25,5 @@ before_script:
   - cp .env.example .env
 
 script:
-  - vendor/bin/phpunit --coverage-clover clover.xml
+  - XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover clover.xml
   - vendor/bin/php-coveralls --coverage_clover=clover.xml -v
