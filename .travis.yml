@@ -1,8 +1,8 @@
 language: php
 
 php:
-  - '7.3'
-  - '7.4'
+  - '7.3.24'
+  - '7.4.0'
 
 services:
   - mysql
@@ -13,6 +13,8 @@ env:
     - DB_NAME=slim4_api_skeleton
     - DB_USER=root
     - DB_PASS=
+    - DB_PORT=3306
+    - XDEBUG_MODE=coverage
 
 before_install:
   - mysql -e 'CREATE DATABASE slim4_api_skeleton'
@@ -23,5 +25,5 @@ before_script:
   - cp .env.example .env
 
 script:
-  - vendor/bin/phpunit --coverage-clover clover.xml
+  - XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover clover.xml
   - vendor/bin/php-coveralls --coverage_clover=clover.xml -v

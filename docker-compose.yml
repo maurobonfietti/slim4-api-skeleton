@@ -24,6 +24,7 @@ services:
       - DB_NAME=slim4_api_skeleton
       - DB_USER=root
       - DB_PASS=
+      - DB_PORT=3306
 
     volumes:
      - ./:/var/www/html
