@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Slim\App;
 
-return static function (App $app, $customErrorHandler): void {
+return static function (App $app, Closure $customErrorHandler): void {
     $path = $_SERVER['SLIM_BASE_PATH'] ?? '';
     $app->setBasePath($path);
     $app->addRoutingMiddleware();
