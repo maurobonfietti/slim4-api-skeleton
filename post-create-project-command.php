@@ -32,7 +32,8 @@ $ cd [your-api-name]
 $ composer test
 $ composer start
 
-\033[33mRemember:\033[37m you need to set the MySQL connection in your dotenv file: '.env'.
+\033[33mRemember!\033[37m
+You need to set the MySQL connection in your dotenv file: '.env'.
 
 \033[32mThanks for installing this project!\033[37m
 
@@ -43,6 +44,6 @@ Now go build a cool RESTful API ;-)
 
 EOF;
 
-unlink('.coveralls.yml');
-unlink('.travis.yml');
-unlink('post-create-project-command.php');
+//unlink('.coveralls.yml');
+//unlink('.travis.yml');
+//unlink('post-create-project-command.php');
