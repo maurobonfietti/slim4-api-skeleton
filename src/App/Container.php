@@ -7,6 +7,5 @@ use Pimple\Psr11\Container as Psr11Container;
 use Slim\Factory\AppFactory;
 
 $container = new Container();
-$app = AppFactory::create(null, new Psr11Container($container));
 
-return $app;
+return AppFactory::create(null, new Psr11Container($container));
