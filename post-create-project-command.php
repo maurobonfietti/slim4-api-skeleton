@@ -44,6 +44,6 @@ Now go build a cool RESTful API ;-)
 
 EOF;
 
-//unlink('.coveralls.yml');
-//unlink('.travis.yml');
-//unlink('post-create-project-command.php');
+unlink('.coveralls.yml');
+unlink('.travis.yml');
+unlink('post-create-project-command.php');
