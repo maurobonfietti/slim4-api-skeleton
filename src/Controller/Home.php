@@ -13,10 +13,9 @@ final class Home
 {
     private const API_NAME = 'slim4-api-skeleton';
 
-    private const API_VERSION = '0.32.0';
+    private const API_VERSION = '0.33.0';
 
-    /** @var Container */
-    private $container;
+    private Container $container;
 
     public function __construct(Container $container)
     {
@@ -31,7 +30,7 @@ final class Home
             'timestamp' => time(),
         ];
 
-        return JsonResponse::withJson($response, json_encode($message), 200);
+        return JsonResponse::withJson($response, (string) json_encode($message));
     }
 
     public function getStatus(Request $request, Response $response): Response
@@ -46,6 +45,6 @@ final class Home
             'timestamp' => time(),
         ];
 
-        return JsonResponse::withJson($response, json_encode($status), 200);
+        return JsonResponse::withJson($response, (string) json_encode($status));
     }
 }

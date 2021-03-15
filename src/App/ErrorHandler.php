@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface;
 
-$customErrorHandler = function (
+return function (
     ServerRequestInterface $request,
     Throwable $exception,
     bool $displayErrorDetails,
@@ -19,7 +19,7 @@ $customErrorHandler = function (
     ) {
         $statusCode = $exception->getCode();
     }
-    $className = new \ReflectionClass(get_class($exception));
+    $className = new ReflectionClass(get_class($exception));
     $data = [
         'message' => $exception->getMessage(),
         'class' => $className->getShortName(),
@@ -34,5 +34,3 @@ $customErrorHandler = function (
         ->withStatus($statusCode)
         ->withHeader('Content-type', 'application/problem+json');
 };
-
-return $customErrorHandler;

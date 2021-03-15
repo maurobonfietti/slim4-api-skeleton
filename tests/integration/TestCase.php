@@ -15,9 +15,7 @@ class TestCase extends PHPUnit_TestCase
 {
     protected function getAppInstance(): App
     {
-        $app = require __DIR__ . '/../../src/App/App.php';
-
-        return $app;
+        return require __DIR__ . '/../../src/App/App.php';
     }
 
     protected function createRequest(
