@@ -21,11 +21,12 @@ class TestCase extends PHPUnit_TestCase
     protected function createRequest(
         string $method,
         string $path,
+        string $query = '',
         array $headers = ['HTTP_ACCEPT' => 'application/json'],
         array $cookies = [],
         array $serverParams = []
     ): SlimRequest {
-        $uri = new Uri('', '', 80, $path);
+        $uri = new Uri('', '', 80, $path, $query);
         $handle = fopen('php://temp', 'w+');
         $stream = (new StreamFactory())->createStreamFromResource($handle);
 
