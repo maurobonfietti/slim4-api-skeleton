@@ -17,7 +17,7 @@ Used technologies: `PHP 7, Slim 4, MySQL, PHPUnit, dotenv, Docker & Docker Compo
 ### Requirements:
 
 - Composer.
-- PHP 7.4+.
+- PHP 7.4+ or 8.0+.
 - MySQL/MariaDB.
 - or Docker.
 
