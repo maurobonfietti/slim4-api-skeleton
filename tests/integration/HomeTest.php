@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\integration;
 
-use App\Helper\StatusCodeInterface;
+use Fig\Http\Message\StatusCodeInterface;
 
 class HomeTest extends TestCase
 {
