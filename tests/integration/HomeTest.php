@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Tests\integration;
 
+use App\Helper\StatusCodeInterface;
+
 class HomeTest extends TestCase
 {
     public function testGetHelp(): void
@@ -13,7 +15,7 @@ class HomeTest extends TestCase
 
         $result = (string) $response->getBody();
 
-        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
         $this->assertStringContainsString('api', $result);
         $this->assertStringContainsString('version', $result);
         $this->assertStringContainsString('time', $result);
@@ -27,7 +29,7 @@ class HomeTest extends TestCase
 
         $result = (string) $response->getBody();
 
-        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
         $this->assertStringContainsString('api', $result);
         $this->assertStringContainsString('version', $result);
         $this->assertStringContainsString('time', $result);
@@ -42,7 +44,7 @@ class HomeTest extends TestCase
         $request = $this->createRequest('OPTIONS', '/status');
         $response = $this->getAppInstance()->handle($request);
 
-        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
     }
 
     public function testRouteNotFoundException(): void
@@ -52,7 +54,7 @@ class HomeTest extends TestCase
 
         $result = (string) $response->getBody();
 
-        $this->assertEquals(404, $response->getStatusCode());
+        $this->assertEquals(StatusCodeInterface::STATUS_NOT_FOUND, $response->getStatusCode());
         $this->assertStringContainsString('error', $result);
         $this->assertStringContainsString('Not found.', $result);
         $this->assertStringContainsString('HttpNotFoundException', $result);
