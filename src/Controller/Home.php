@@ -11,9 +11,9 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 final class Home
 {
-    private const API_NAME = 'slim4-api-skeleton';
+    private const API_NAME = $_ENV['API_NAME'];
 
-    private const API_VERSION = '0.36.0';
+    private const API_VERSION = $_ENV['API_VERSION'];
 
     private Container $container;
 
