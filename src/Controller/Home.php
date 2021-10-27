@@ -30,7 +30,7 @@ final class Home
             'timestamp' => time(),
         ];
 
-        return JsonResponse::withJson($response, (string) json_encode($message));
+        return $response->withJson($message);
     }
 
     public function getStatus(Request $request, Response $response): Response
@@ -45,6 +45,6 @@ final class Home
             'timestamp' => time(),
         ];
 
-        return JsonResponse::withJson($response, (string) json_encode($status));
+        return $response->withJson($status);
     }
 }
