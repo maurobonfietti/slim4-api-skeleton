@@ -2,11 +2,13 @@
 
 namespace Tests\integration;
 
+require_once __DIR__.'/../../src/App/CustomResponse.php';
 require_once __DIR__.'/../../src/App/ResponseFactory.php';
 
-use Slim\Psr7\Response;
+use App\CustomResponse as Response;
 use Slim\Factory\AppFactory;
 use Psr\Http\Message\ServerRequestInterface as Request;
+
 
 class CustomResponseTest extends TestCase
 {
