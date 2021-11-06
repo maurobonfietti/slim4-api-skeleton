@@ -2,7 +2,7 @@
 
 Useful skeleton for RESTful API development, using [Slim PHP micro framework](https://www.slimframework.com).
 
-Used technologies: `PHP 7, Slim 4, MySQL, PHPUnit, dotenv, Docker & Docker Compose`.
+Used technologies: `PHP 8, Slim 4, MySQL, PHPUnit, dotenv, Docker & Docker Compose`.
 
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status](https://travis-ci.com/maurobonfietti/slim4-api-skeleton.svg?branch=master)](https://travis-ci.com/maurobonfietti/slim4-api-skeleton)
