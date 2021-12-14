@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\CustomResponse as Response;
 use Pimple\Psr11\Container;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use App\CustomResponse as Response;
 
 final class Home
 {
     private const API_NAME = 'slim4-api-skeleton';
 
-    private const API_VERSION = '0.38.0';
+    private const API_VERSION = '0.39.0';
 
     private Container $container;
 

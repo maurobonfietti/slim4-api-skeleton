@@ -19,7 +19,7 @@ return function (
     ) {
         $statusCode = $exception->getCode();
     }
-    $className = new ReflectionClass(get_class($exception));
+    $className = new \ReflectionClass($exception::class);
     $data = [
         'message' => $exception->getMessage(),
         'class' => $className->getShortName(),
