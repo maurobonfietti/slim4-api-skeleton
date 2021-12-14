@@ -9,11 +9,9 @@ use App\CustomResponse as Response;
 use Slim\Factory\AppFactory;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-
 class CustomResponseTest extends TestCase
 {
-
-     public function testWithJson()
+    public function testWithJson()
     {
         $app = AppFactory::create(new \ResponseFactory());
         $data = ['foo' => 'bar1&bar2'];
@@ -21,7 +19,6 @@ class CustomResponseTest extends TestCase
         $app->get('/path', function (Request $request, Response $response) use ($data): Response {
             return $response->withJson($data, 201);
         });
-
 
         $request = $this->createRequest('GET', '/path');
         $response = $app->handle($request);
@@ -31,7 +28,7 @@ class CustomResponseTest extends TestCase
 
         $body = $response->getBody();
         $body->rewind();
-        $dataJson = $body->getContents(); //json_decode($body->getContents(), true);
+        $dataJson = $body->getContents();
 
         $this->assertEquals('{"foo":"bar1&bar2"}', $dataJson);
         $this->assertEquals($data['foo'], json_decode($dataJson, true)['foo']);
@@ -43,7 +40,6 @@ class CustomResponseTest extends TestCase
         $data = ['foo' => 'bar1&bar2'];
 
         $app->get('/path', function (Request $request, Response $response) use ($data): Response {
-
             return $response->withJson($data, 200, JSON_HEX_AMP);
         });
 
@@ -64,8 +60,8 @@ class CustomResponseTest extends TestCase
         $data = ["text" => "\xB1\x31"];
         $app->get('/path', function (Request $request, Response $response) use ($data): Response {
             return $response->withJson($data, 200);
-        });        
-        
+        });
+
         $this->expectException(\RuntimeException::class);
         $this->expectExceptionMessage('Malformed UTF-8 characters, possibly incorrectly encoded');
 

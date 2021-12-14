@@ -2,9 +2,6 @@
 
 declare(strict_types=1);
 
-use Pimple\Container;
-
-/** @var Container $container */
 $container['db'] = static function (): PDO {
     $dsn = sprintf(
         'mysql:host=%s;dbname=%s;port=%s;charset=utf8',
