@@ -21,7 +21,7 @@
         }
     ],
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^8.0",
         "ext-pdo": "*",
         "ext-json": "*",
         "pimple/pimple": "^3.2",
@@ -36,9 +36,6 @@
         "symfony/console": "^4.4"
     },
     "config": {
-        "platform": {
-            "php": "7.4.0"
-        },
         "sort-packages": true,
         "process-timeout": 0
     },
