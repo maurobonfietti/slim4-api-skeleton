@@ -27,10 +27,10 @@ Used technologies: `PHP 8, Slim 4, MySQL, PHPUnit, dotenv, Docker & Docker Compo
 You can create a new project running the following commands:
 
 ```bash
-$ composer create-project maurobonfietti/slim4-api-skeleton [my-api-name]
-$ cd [my-api-name]
-$ composer test
-$ composer start
+composer create-project maurobonfietti/slim4-api-skeleton [my-api-name]
+cd [my-api-name]
+composer test
+composer start
 ```
 
 
@@ -64,13 +64,13 @@ If you like Docker, you can use this project with **docker** and **docker-compos
 
 ```bash
 # Create and start containers for the API.
-$ docker-compose up -d --build
+docker-compose up -d --build
 
 # Checkout the API.
-$ curl http://localhost:8081
+curl http://localhost:8081
 
 # Stop and remove containers.
-$ docker-compose down
+docker-compose down
 ```
 
 
