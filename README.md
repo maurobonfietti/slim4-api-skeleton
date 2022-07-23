@@ -27,10 +27,6 @@ Used technologies: `PHP 8, Slim 4, MySQL, PHPUnit, dotenv, Docker & Docker Compo
 You can create a new project running the following commands:
 
 ```bash
-
-https://user-images.githubusercontent.com/24535949/180607890-7506e622-9508-4621-a248-9e24bf8c30bf.mp4
-
-
 composer create-project maurobonfietti/slim4-api-skeleton [my-api-name]
 cd [my-api-name]
 composer test
