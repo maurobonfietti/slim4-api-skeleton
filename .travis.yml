@@ -2,7 +2,6 @@ language: php
 
 php:
   - '8.1.0'
-  - '8.2.0'
 
 services:
   - mysql
