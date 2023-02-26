@@ -16,12 +16,19 @@ final class CustomResponse extends ResponseBase
         $json = json_encode($data, $encodingOptions);
 
         if ($json === false) {
-            throw new \RuntimeException(json_last_error_msg(), json_last_error());
+            throw new \RuntimeException(
+                json_last_error_msg(),
+                json_last_error()
+            );
         }
 
         $this->getBody()->write($json);
 
-        $responseWithJson = $this->withHeader('Content-Type', 'application/json;charset=utf-8');
+        $responseWithJson = $this->withHeader(
+            'Content-Type',
+            'application/json;charset=utf-8'
+        );
+
         if (isset($status)) {
             return $responseWithJson->withStatus($status);
         }
