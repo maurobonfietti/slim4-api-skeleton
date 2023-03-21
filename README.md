@@ -2,7 +2,6 @@
 
 Useful skeleton for RESTful API development, using [Slim PHP micro framework](https://www.slimframework.com).
 
-Used technologies: `PHP 8, Slim 4, MySQL, PHPUnit, dotenv, Docker & Docker Compose`.
 
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status](https://travis-ci.com/maurobonfietti/slim4-api-skeleton.svg?branch=master)](https://travis-ci.com/maurobonfietti/slim4-api-skeleton)
@@ -10,6 +9,19 @@ Used technologies: `PHP 8, Slim 4, MySQL, PHPUnit, dotenv, Docker & Docker Compo
 [![Packagist Version](https://img.shields.io/packagist/v/maurobonfietti/slim4-api-skeleton)](https://packagist.org/packages/maurobonfietti/slim4-api-skeleton)
 
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat
+
+
+## :computer: TECHNOLOGIES USED:
+
+The main technologies used in this project are:
+
+- PHP 8
+- Slim 4
+- MySQL
+- PHPUnit
+- dotenv
+- Docker
+- Docker Compose
 
 
 ## :gear: QUICK INSTALL:
@@ -102,14 +114,17 @@ docker-compose down
 
 ## :video_camera: TUTORIAL:
 
-[Develop a RESTful API with PHP and Slim 4.](https://youtu.be/DetK1w65S-k) [:movie_camera: :sound: :es: :argentina:]
+Learn how to develop a RESTful API with PHP and Slim 4 by following this [video](https://youtu.be/DetK1w65S-k) [:movie_camera: :sound: :es: :argentina:]
+
 
 https://user-images.githubusercontent.com/24535949/180607903-7efd2cfc-b1df-4ad6-8295-801585df3b83.mp4
 
 
-## :heart: WOULD YOU LIKE TO SUPPORT THIS PROJECT?
+## :heart: SUPPORT THE PROJECT
 
-You can support this project inviting me a coffee :coffee: :yum: or giving a **star** to this repo :star: :blush:.
+If you would like to support this project, you can:
+- Invite the author a coffee :coffee: :yum:
+- Give a star to the repository :star: :blush:
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/maurobonfietti)
 
