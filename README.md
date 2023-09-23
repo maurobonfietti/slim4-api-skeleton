@@ -1,6 +1,6 @@
 # SLIM 4 - API SKELETON
 
-Useful skeleton for RESTful API development, using [Slim PHP micro framework](https://www.slimframework.com).
+Useful skeleton for RESTful API development, using [Slim PHP micro-framework](https://www.slimframework.com).
 
 
 [![Software License][ico-license]](LICENSE.md)
@@ -48,7 +48,7 @@ composer start
 
 #### Configure your connection to MySQL Server:
 
-By default, the API use a MySQL Database.
+By default, the API uses a MySQL database.
 
 You should check and edit this configuration in your `.env` file:
 
@@ -63,7 +63,7 @@ DB_PORT='3306'
 
 ### With Docker:
 
-If you like Docker, you can use this project with **docker** and **docker-compose**.
+If you like Docker, you can use this project with **Docker** and **Docker Compose**.
 
 
 **Minimal Docker Version:**
@@ -129,6 +129,6 @@ If you would like to support this project, you can:
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/maurobonfietti)
 
 
-## :sunglasses: THAT'S IT!
+## :sunglasses: AND THAT'S IT!
 
-Now go build a cool RESTful API.
+Now, go to build an excellent RESTful API.
