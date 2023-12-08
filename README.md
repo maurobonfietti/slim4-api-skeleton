@@ -11,7 +11,7 @@ Useful skeleton for RESTful API development, using [Slim PHP micro-framework](ht
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat
 
 
-## :computer: TECHNOLOGIES USED:
+## 💻 TECHNOLOGIES USED:
 
 The main technologies used in this project are:
 
@@ -24,7 +24,7 @@ The main technologies used in this project are:
 - Docker Compose
 
 
-## :gear: QUICK INSTALL:
+## ⚙️ QUICK INSTALL:
 
 ### Requirements:
 
@@ -86,7 +86,7 @@ docker-compose down
 ```
 
 
-## :package: DEPENDENCIES:
+## 📦 DEPENDENCIES:
 
 ### LIST OF REQUIRE DEPENDENCIES:
 
@@ -103,7 +103,7 @@ docker-compose down
 - [maurobonfietti/slim4-api-skeleton-crud-generator](https://github.com/maurobonfietti/slim4-api-skeleton-crud-generator): CRUD Generator for Slim 4 - Api Skeleton.
 
 
-## :bookmark: ENDPOINTS:
+## 🔖 ENDPOINTS:
 
 ### BY DEFAULT:
 
@@ -112,7 +112,7 @@ docker-compose down
 - Health Check: `GET /status`
 
 
-## :video_camera: TUTORIAL:
+## 📹 TUTORIAL:
 
 Learn how to develop a RESTful API with PHP and Slim 4 by following this [video](https://youtu.be/DetK1w65S-k) [:movie_camera: :sound: :es: :argentina:]
 
