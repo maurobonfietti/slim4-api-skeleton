@@ -13,7 +13,7 @@ services:
       - php-fpm
 
   php-fpm:
-    build: ./docker/php7
+    build: ./docker/php
     container_name: slim4-api-skeleton-php-container
     links:
       - mysql
