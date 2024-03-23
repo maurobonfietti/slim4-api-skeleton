@@ -114,7 +114,7 @@ docker-compose down
 
 ## 📹 TUTORIAL:
 
-Learn how to develop a RESTful API with PHP and Slim 4 by following this [video](https://youtu.be/DetK1w65S-k) [:movie_camera: :sound: :es: :argentina:]
+Learn how to develop a RESTful API with PHP and Slim 4 by following this [video](https://youtu.be/DetK1w65S-k) [🎥 🔈 🇪🇸 🇦🇷]
 
 
 https://user-images.githubusercontent.com/24535949/180607903-7efd2cfc-b1df-4ad6-8295-801585df3b83.mp4
