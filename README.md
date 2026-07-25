@@ -29,7 +29,7 @@ The main technologies used in this project are:
 ### Requirements:
 
 - Composer.
-- PHP >= 8.1
+- PHP >= 8.3
 - MySQL/MariaDB.
 - or Docker.
 
