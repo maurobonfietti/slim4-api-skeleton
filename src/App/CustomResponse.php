@@ -24,15 +24,8 @@ final class CustomResponse extends ResponseBase
 
         $this->getBody()->write($json);
 
-        $responseWithJson = $this->withHeader(
-            'Content-Type',
-            'application/json;charset=utf-8'
-        );
-
-        if (isset($status)) {
-            return $responseWithJson->withStatus($status);
-        }
-
-        return $responseWithJson;
+        return $this
+            ->withHeader('Content-Type', 'application/json;charset=utf-8')
+            ->withStatus($status);
     }
 }
