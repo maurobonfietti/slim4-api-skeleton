@@ -33,7 +33,7 @@
         "maurobonfietti/skel-api-slim-php-crud-generator": "dev-master",
         "nunomaduro/phpinsights": "^2.0",
         "phpunit/phpunit": "^9.0",
-        "symfony/console": "^4.4"
+        "symfony/console": "^7.4"
     },
     "config": {
         "sort-packages": true,
