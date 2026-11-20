@@ -4,8 +4,8 @@ Useful skeleton for RESTful API development, using [Slim PHP micro-framework](ht
 
 
 [![Software License][ico-license]](LICENSE.md)
-[![Build Status](https://travis-ci.com/maurobonfietti/slim4-api-skeleton.svg?branch=master)](https://travis-ci.com/maurobonfietti/slim4-api-skeleton)
-[![Coverage Status](https://coveralls.io/repos/github/maurobonfietti/slim4-api-skeleton/badge.svg?branch=master)](https://coveralls.io/github/maurobonfietti/slim4-api-skeleton?branch=master)
+[![Tests](https://github.com/maurobonfietti/slim4-api-skeleton/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/maurobonfietti/slim4-api-skeleton/actions/workflows/tests.yml)
+[![Coverage Status](https://coveralls.io/repos/github/maurobonfietti/slim4-api-skeleton/badge.svg?branch=main)](https://coveralls.io/github/maurobonfietti/slim4-api-skeleton?branch=main)
 [![Packagist Version](https://img.shields.io/packagist/v/maurobonfietti/slim4-api-skeleton)](https://packagist.org/packages/maurobonfietti/slim4-api-skeleton)
 
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat
@@ -15,7 +15,7 @@ Useful skeleton for RESTful API development, using [Slim PHP micro-framework](ht
 
 The main technologies used in this project are:
 
-- PHP 8
+- PHP 8.4 / 8.5 / 8.6
 - Slim 4
 - MySQL
 - PHPUnit
@@ -29,7 +29,7 @@ The main technologies used in this project are:
 ### Requirements:
 
 - Composer.
-- PHP >= 8.3
+- PHP >= 8.4 (tested on 8.4, 8.5 and 8.6).
 - MySQL/MariaDB.
 - or Docker.
 
@@ -68,21 +68,24 @@ If you like Docker, you can use this project with **Docker** and **Docker Compos
 
 **Minimal Docker Version:**
 
-* Engine: 18.03+
-* Compose: 1.21+
+* Engine: 20.10+
+* Compose: v2 (`docker compose`)
 
 
 **Docker Commands:**
 
 ```bash
 # Create and start containers for the API.
-docker-compose up -d --build
+docker compose up -d --build
 
 # Checkout the API.
 curl http://localhost:8081
 
+# Use PHP 8.5 instead of the default PHP 8.6 image.
+PHP_VERSION=8.5 docker compose up -d --build
+
 # Stop and remove containers.
-docker-compose down
+docker compose down
 ```
 
 

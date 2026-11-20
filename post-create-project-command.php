@@ -44,6 +44,5 @@ Now go build a cool RESTful API ;-)
 
 EOF;
 
-unlink('.coveralls.yml');
-unlink('.travis.yml');
+unlink('.github/workflows/tests.yml');
 unlink('post-create-project-command.php');
