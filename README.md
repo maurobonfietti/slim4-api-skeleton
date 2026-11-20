@@ -126,7 +126,7 @@ If you would like to support this project, you can:
 - Invite the author a coffee :coffee: :yum:
 - Give a star to the repository :star: :blush:
 
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/maurobonfietti)
+[![ko-fi](https://user-images.githubusercontent.com/51191974/60371721-179a2e00-99c8-11e9-86f1-83e676857f3d.png)](https://ko-fi.com/maurobonfietti)
 
 
 ## :sunglasses: AND THAT'S IT!
