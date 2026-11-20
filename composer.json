@@ -21,19 +21,19 @@
         }
     ],
     "require": {
-        "php": "^8.3",
+        "php": "^8.4",
         "ext-pdo": "*",
         "ext-json": "*",
-        "pimple/pimple": "^3.2",
-        "slim/psr7": "^1.4.0",
-        "slim/slim": "^4.5",
-        "vlucas/phpdotenv": "^5.1"
+        "pimple/pimple": "^3.6",
+        "slim/psr7": "^1.8.1",
+        "slim/slim": "^4.15",
+        "vlucas/phpdotenv": "^5.8"
     },
     "require-dev": {
         "maurobonfietti/skel-api-slim-php-crud-generator": "dev-master",
-        "nunomaduro/phpinsights": "^2.0",
-        "phpunit/phpunit": "^9.0",
-        "symfony/console": "^7.4"
+        "nunomaduro/phpinsights": "^2.15",
+        "phpunit/phpunit": "^13.0",
+        "symfony/console": "^7.4 || ^8.0"
     },
     "config": {
         "sort-packages": true,
@@ -61,9 +61,9 @@
         ],
         "coverage": "phpunit --coverage-text --coverage-html coverage",
         "crud": "php console api:generate:endpoints",
-        "down": "docker-compose down",
+        "down": "docker compose down",
         "start": "php -S localhost:8080 -t public public/index.php",
         "test": "phpunit",
-        "up": "docker-compose up -d --build"
+        "up": "docker compose up -d --build"
     }
 }

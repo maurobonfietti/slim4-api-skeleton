@@ -11,7 +11,7 @@ use Slim\Psr7\Headers;
 use Slim\Psr7\Request as SlimRequest;
 use Slim\Psr7\Uri;
 
-class TestCase extends PHPUnit_TestCase
+abstract class TestCase extends PHPUnit_TestCase
 {
     protected function getAppInstance(): App
     {
