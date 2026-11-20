@@ -9,3 +9,4 @@
 /.env
 /.scannerwork/
 /.phpunit.result.cache
+/.phpunit.cache/

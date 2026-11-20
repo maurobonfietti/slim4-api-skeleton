@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   nginx:
     image: nginx:latest
@@ -13,10 +11,11 @@ services:
       - php-fpm
 
   php-fpm:
-    build: ./docker/php
+    build:
+      context: ./docker/php
+      args:
+        PHP_VERSION: ${PHP_VERSION:-8.6}
     container_name: slim4-api-skeleton-php-container
-    links:
-      - mysql
     environment:
       - PHP_FPM_ENABLE=1
       - PHP_FPM_SERVER_ADDR=php
@@ -27,20 +26,18 @@ services:
       - DB_USER=root
       - DB_PASS=
       - DB_PORT=3306
-
+    depends_on:
+      - mysql
     volumes:
      - ./:/var/www/html
 
   mysql:
-    image: mysql:5.7
+    image: mysql:8.4
     ports:
       - 33060:3306
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: slim4_api_skeleton
-      MYSQL_USER: root
-      MYSQL_PASSWORD: 
-      MYSQL_ROOT_PASSWORD: 
     volumes:
       - my-data:/var/lib/mysql
 
